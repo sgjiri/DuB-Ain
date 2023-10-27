@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+	<section class="hero">
+		<div class='backgroud-hero'>
+			<div class="demoB right"></div>
+			<div class="max-width"></div>
+			<div class="texte-hero">
+				<h1>DU B’AIN AU SALON</h1>
+				<p>Fiez-vous à un artisan expérimenté en rénovation de votre bien du salle de bain jusq’au salon</p>
+				<div class="button-hero">
+					<button class="btn-contact">conactez moi</button>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="presentation">
+		<div class="triangle-right"></div>
+		<div class="max-width">
+			<div>
+				<h2>du b'ain au salon</h2>
+				<p>En tant qu'artisan expérimenté, je suis prêt à offrir des solutions novatrices pour votre projet de rénovation, que ce soit en plomberie, en électricité, en plâtrerie, ou dans tout autre domaine de travaux de rénovation. J'interviens dans les alentours de Bourg-en-Bresse (01).
+				</p>
+			</div>
+			<figure>
+				<img src="./img/renovation.png" alt="renovation">
+			</figure>
+		</div>
+	</section>
+	<section class="section-slider">
+		<div class="efect-lenear">
+			<h3>APRECIER L’ENSEMBLE DE MES
+
+				<br>
+				<span>PRESTATIONS</span>
+			</h3>
+
+			<div class='contrent-slider'>
+				<div class="glider-contain">
+					<div
+						class="glider">{# {% for produit in produits %}
+																																																			<div class="product-box">
+																																																				<div class='p-img-container'>
+																																																					<div class='p-img'>
+																																																						<a href="{{ path('app_detail_beer', {'id': produit.id }) }}">
+																																																							<img class="p-img-front" src="../img/{{ produit.thumbnail }}" alt="">
+																																																						</a>
+																																																					</div>
+																																																				</div>
+																																																				<div class="p-box-text">
+																																																					<h3>{{ produit.name }}</h3>
+																																																					<div class='color-of-beer'>
+																																																						<span style='background-color: {{ produit.colorhex }};'></span>
+																																																						<p>{{ produit.color }}</p>
+																																																					</div>
+																																																					<div class='category-of-beer'>
+																																												
+																																																						<p>
+																																																							{% for categoryId in categoryNames[produit.getId()] %}
+																																																								{{ categoryId.getName() }}{{ not loop.last ? ', ' }}
+																																																							{% endfor %}
+																																																						</p>
+																																												
+																																																					</div>
+																																												
+																																																					<p></p>
+																																																					<p class='p-alchole-volume  p-card-produit'>{{ produit.alcohol }}%vol |
+																																																						{{ produit.volume|number_format(1, '.', '') }}cl</p>
+																																																					<p class='p-prix p-card-produit'>{{ produit.price|number_format(2, '.', '') }}€</p>
+																																																					<a href="#">
+																																																						<p>Ajouter au panier
+																																																						</p>
+																																																						<img src="../img/panier.svg" alt="panier">
+																																																					</a>
+																																																				</div>
+																																																			</div>
+																																																		{% endfor %} #}
+					</div>
+				</div>
+			</div>
+			<div class="slider-btns">
+				<button aria-label="Previous" class="glider-prev">
+					<figure>
+						<img src="../img/Arrow.svg" alt="fleche">
+					</figure>
+				</button>
+				<button aria-label="Next" class="glider-next">
+					<figure>
+						<img src="../img/Arrow.svg" alt="fleche">
+					</figure>
+				</button>
+			</div>
+		</div>
+
+	</section>
+	{% block js %}
+		<script src="../js/glider.js"></script>
+		{# <script src="../js/main.js"></script> #}
+	{% endblock %}
+
+
+{% endblock %}
