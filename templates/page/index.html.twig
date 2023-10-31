@@ -36,47 +36,86 @@
 				<span>PRESTATIONS</span>
 			</h3>
 
-			<div class='contrent-slider'>
-				<div class="glider-contain">
-					<div
-						class="glider">{# {% for produit in produits %}
-																																																			<div class="product-box">
-																																																				<div class='p-img-container'>
-																																																					<div class='p-img'>
-																																																						<a href="{{ path('app_detail_beer', {'id': produit.id }) }}">
-																																																							<img class="p-img-front" src="../img/{{ produit.thumbnail }}" alt="">
-																																																						</a>
-																																																					</div>
-																																																				</div>
-																																																				<div class="p-box-text">
-																																																					<h3>{{ produit.name }}</h3>
-																																																					<div class='color-of-beer'>
-																																																						<span style='background-color: {{ produit.colorhex }};'></span>
-																																																						<p>{{ produit.color }}</p>
-																																																					</div>
-																																																					<div class='category-of-beer'>
-																																												
-																																																						<p>
-																																																							{% for categoryId in categoryNames[produit.getId()] %}
-																																																								{{ categoryId.getName() }}{{ not loop.last ? ', ' }}
-																																																							{% endfor %}
-																																																						</p>
-																																												
-																																																					</div>
-																																												
-																																																					<p></p>
-																																																					<p class='p-alchole-volume  p-card-produit'>{{ produit.alcohol }}%vol |
-																																																						{{ produit.volume|number_format(1, '.', '') }}cl</p>
-																																																					<p class='p-prix p-card-produit'>{{ produit.price|number_format(2, '.', '') }}€</p>
-																																																					<a href="#">
-																																																						<p>Ajouter au panier
-																																																						</p>
-																																																						<img src="../img/panier.svg" alt="panier">
-																																																					</a>
-																																																				</div>
-																																																			</div>
-																																																		{% endfor %} #}
+			<div class="glider-contain">
+				<div class="glider">
+					<div class="product-box">
+						<div class="p-img-container">
+							<div class='p-img'>
+								<a href="">
+									<img src="../img/renovation.png" class='p-img-front' alt="">
+								</a>
+							</div>
+
+						</div>
+
 					</div>
+					<div class="product-box">
+						<div class="p-img-container">
+							<div class='p-img'>
+								<a href="">
+									<img src="../img/renovation.png" class='p-img-front' alt="">
+								</a>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="product-box">
+						<div class="p-img-container">
+							<div class='p-img'>
+								<a href="">
+									<img src="../img/renovation.png" class='p-img-front' alt="">
+								</a>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="product-box">
+						<div class="p-img-container">
+							<div class='p-img'>
+								<a href="">
+									<img src="../img/renovation.png" class='p-img-front' alt="">
+								</a>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="product-box">
+						<div class="p-img-container">
+							<div class='p-img'>
+								<a href="">
+									<img src="../img/renovation.png" class='p-img-front' alt="">
+								</a>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="product-box">
+						<div class="p-img-container">
+							<div class='p-img'>
+								<a href="">
+									<img src="../img/renovation.png" class='p-img-front' alt="">
+								</a>
+							</div>
+
+						</div>
+
+					</div>
+					<div class="product-box">
+						<div class="p-img-container">
+							<div class='p-img'>
+								<a href="">
+									<img src="../img/renovation.png" class='p-img-front' alt="">
+								</a>
+							</div>
+
+						</div>
+
+					</div>
+
 				</div>
 			</div>
 			<div class="slider-btns">
@@ -91,12 +130,52 @@
 					</figure>
 				</button>
 			</div>
+
 		</div>
 
 	</section>
+	<section class="values">
+		<div class="triangle-left"></div>
+		<div class="max-width">
+		<h2>Points forts</h2>
+		<div class="containt-values">
+			<div class="oneValue">
+				<figure>
+					<img src="../img/Guarantee.svg" alt="">
+				</figure>
+				<h3>Qualité</h3>
+				<p>J’attache une attention particulière à la qualité de mes services.</p>
+			</div>
+			<div class="oneValue">
+				<figure>
+					<img src="../img/Guarantee.svg" alt="">
+				</figure>
+				<h3>Qualité</h3>
+				<p>J’attache une attention particulière à la qualité de mes services.</p>
+			</div>
+			<div class="oneValue">
+				<figure>
+					<img src="../img/Guarantee.svg" alt="">
+				</figure>
+				<h3>Qualité</h3>
+				<p>J’attache une attention particulière à la qualité de mes services.</p>
+			</div>
+			<div class="oneValue">
+				<figure>
+					<img src="../img/Guarantee.svg" alt="">
+				</figure>
+				<h3>Qualité</h3>
+				<p>J’attache une attention particulière à la qualité de mes services.</p>
+			</div>		
+		</div>
+		
+		
+		</div>
+	
+	</section>
 	{% block js %}
 		<script src="../js/glider.js"></script>
-		{# <script src="../js/main.js"></script> #}
+		<script src="../js/main.js"></script>
 	{% endblock %}
 
 
