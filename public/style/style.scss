@@ -40,7 +40,7 @@ $theight: calc($twidth / 2);
       height: 100%;
       width: 100%;
       display: flex;
-      a {
+      div {
         height: 100%;
         width: 100%;
         display: block;
@@ -95,7 +95,7 @@ img {
   height: 100%;
   border-radius: 10px;
   object-fit: cover;
-  filter: drop-shadow(5px 9px 30px rgba(0, 0, 0, 0.10));
+  filter: drop-shadow(5px 9px 30px rgba(0, 0, 0, 0.1));
 }
 a {
   text-transform: uppercase;
@@ -584,11 +584,10 @@ header {
     }
   }
 }
-.herosdb {
+.hero-prestation {
   padding-bottom: 50px;
   .backgroud-hero {
-    background: url(../img/herosdb.png) center center / cover no-repeat;
-    .triangle-right{
+    .triangle-right {
       background-color: $blackOpacity;
       top: 35%;
       width: 90%;
@@ -604,31 +603,40 @@ header {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-        h1{
+        h1 {
           text-align: end;
-
         }
-        p{
+        p {
           text-align: end;
           width: 80%;
         }
-        .p-second-herosdb{
+        .first-p-realisation {
+          text-transform: uppercase;
+        }
+        .p-second-herosdb {
           display: none;
           font-size: 1em;
           font-family: $Poppins-Regular;
 
-          @media screen and (min-width: 1000px){
+          @media screen and (min-width: 1000px) {
             display: block;
           }
-          @media screen and (max-height: 800px){
+          @media screen and (max-height: 800px) {
             display: none;
           }
         }
-    }
+      }
     }
   }
+  .backgroud-hero-sdb {
+    background: url(../img/herosdb.png) center center / cover no-repeat;
+  }
+  .backgroud-hero-renovation {
+    background: url(../img/salon.jpg) center center / cover no-repeat;
+  }
 }
-.content-sdb{
+
+.content-sdb {
   position: relative;
   overflow: hidden;
 
@@ -647,26 +655,24 @@ header {
       display: block;
     }
   }
-  .point{
+  .point {
     display: flex;
     padding: 100px 0;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
 
-    &:nth-child(2){
+    &:nth-child(2) {
       flex-direction: column-reverse;
       @media screen and (min-width: 1000px) {
         flex-direction: row;
-        
       }
     }
 
     @media screen and (min-width: 1000px) {
       flex-direction: row;
-      
     }
-    figure{
+    figure {
       width: 100%;
       height: 400px;
       padding-bottom: 50px;
@@ -674,27 +680,148 @@ header {
       @media screen and (min-width: 1000px) {
         width: 45%;
         padding-bottom: 0;
-        
       }
     }
-    div{
+    div {
       width: 100%;
       z-index: 50;
 
       @media screen and (min-width: 1000px) {
         width: 40%;
-        
       }
-      p{
+      p {
         font-size: 1em;
 
         @media screen and (min-width: 1200px) {
           font-size: 1.2em;
         }
-        
       }
-      h2{
+      h2 {
         padding: 50px 0;
+      }
+    }
+  }
+}
+.decline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p {
+    padding: 50px;
+    background-color: $blackOpacity;
+    color: $white;
+    margin: 10px;
+    text-align: center;
+  }
+}
+.content-realisation {
+  .point {
+    -webkit-box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.3);
+    height: auto;
+    position: relative;
+    z-index: 40;
+    padding: 0;
+    margin: 200px 0;
+    border-radius: 10px;
+    background-color: $white;
+    @media screen and (min-width: 1000px) {
+      height: 400px;
+    }
+    .glider-contain {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      display: block;
+      .glider {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        .product-box {
+          width: 100%;
+          height: 300px;
+          padding: 0;
+          margin: 0;
+          position: relative;
+
+          @media screen and (min-width: 1000px) {
+            width: 70%;
+            height: 100%;
+          }
+          .p-img-container {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            .p-img {
+              height: 100%;
+              width: 100%;
+              padding: 0;
+              figure {
+                height: 100%;
+                width: 100%;
+              }
+            }
+          }
+
+          img {
+            border-radius: 10px 10px 0 0;
+            filter: none;
+
+            @media screen and (min-width: 1000px) {
+              border-radius: 10px 0 0 10px;
+            }
+          }
+          .reverse-border {
+            @media screen and (min-width: 1000px) {
+              border-radius: 0 10px 10px 0;
+            }
+          }
+          .slider-btns {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+            flex-direction: row;
+
+            button {
+              height: 50px;
+              position: relative;
+              top: 0;
+              left: 0;
+              figure {
+                height: 100%;
+                width: 100%;
+              }
+              &:nth-child(2) {
+                figure {
+                  img {
+                    transform: rotate(180deg);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0;
+
+      @media screen and (min-width: 1000px) {
+        width: 30%;
+      }
+      h4,
+      p {
+        margin: 10px 20px;
       }
     }
   }

@@ -29,12 +29,12 @@
   width: 100%;
   display: flex;
 }
-.product-box .p-img-container .p-img a {
+.product-box .p-img-container .p-img div {
   height: 100%;
   width: 100%;
   display: block;
 }
-.product-box .p-img-container .p-img a img {
+.product-box .p-img-container .p-img div img {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
@@ -653,55 +653,61 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   filter: none;
 }
 
-.herosdb {
+.hero-prestation {
   padding-bottom: 50px;
 }
-.herosdb .backgroud-hero {
-  background: url(../img/herosdb.png) center center/cover no-repeat;
-}
-.herosdb .backgroud-hero .triangle-right {
+.hero-prestation .backgroud-hero .triangle-right {
   background-color: rgba(30, 30, 30, 0.7);
   top: 35%;
   width: 90%;
 }
 @media screen and (min-width: 700px) {
-  .herosdb .backgroud-hero .triangle-right {
+  .hero-prestation .backgroud-hero .triangle-right {
     width: 70%;
   }
 }
 @media screen and (min-width: 1200px) {
-  .herosdb .backgroud-hero .triangle-right {
+  .hero-prestation .backgroud-hero .triangle-right {
     width: 60%;
   }
 }
-.herosdb .backgroud-hero .triangle-right .texte-hero {
+.hero-prestation .backgroud-hero .triangle-right .texte-hero {
   width: 85%;
   top: 30%;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
-.herosdb .backgroud-hero .triangle-right .texte-hero h1 {
+.hero-prestation .backgroud-hero .triangle-right .texte-hero h1 {
   text-align: end;
 }
-.herosdb .backgroud-hero .triangle-right .texte-hero p {
+.hero-prestation .backgroud-hero .triangle-right .texte-hero p {
   text-align: end;
   width: 80%;
 }
-.herosdb .backgroud-hero .triangle-right .texte-hero .p-second-herosdb {
+.hero-prestation .backgroud-hero .triangle-right .texte-hero .first-p-realisation {
+  text-transform: uppercase;
+}
+.hero-prestation .backgroud-hero .triangle-right .texte-hero .p-second-herosdb {
   display: none;
   font-size: 1em;
   font-family: "Poppins-Regular", sans-serif;
 }
 @media screen and (min-width: 1000px) {
-  .herosdb .backgroud-hero .triangle-right .texte-hero .p-second-herosdb {
+  .hero-prestation .backgroud-hero .triangle-right .texte-hero .p-second-herosdb {
     display: block;
   }
 }
 @media screen and (max-height: 800px) {
-  .herosdb .backgroud-hero .triangle-right .texte-hero .p-second-herosdb {
+  .hero-prestation .backgroud-hero .triangle-right .texte-hero .p-second-herosdb {
     display: none;
   }
+}
+.hero-prestation .backgroud-hero-sdb {
+  background: url(../img/herosdb.png) center center/cover no-repeat;
+}
+.hero-prestation .backgroud-hero-renovation {
+  background: url(../img/salon.jpg) center center/cover no-repeat;
 }
 
 .content-sdb {
@@ -777,6 +783,127 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 }
 .content-sdb .point div h2 {
   padding: 50px 0;
+}
+
+.decline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.decline p {
+  padding: 50px;
+  background-color: rgba(30, 30, 30, 0.7);
+  color: #fff;
+  margin: 10px;
+  text-align: center;
+}
+
+.content-realisation .point {
+  box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.3);
+  height: auto;
+  position: relative;
+  z-index: 40;
+  padding: 0;
+  margin: 200px 0;
+  border-radius: 10px;
+  background-color: #fff;
+}
+@media screen and (min-width: 1000px) {
+  .content-realisation .point {
+    height: 400px;
+  }
+}
+.content-realisation .point .glider-contain {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  display: block;
+}
+.content-realisation .point .glider-contain .glider {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+.content-realisation .point .glider-contain .glider .product-box {
+  width: 100%;
+  height: 300px;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+@media screen and (min-width: 1000px) {
+  .content-realisation .point .glider-contain .glider .product-box {
+    width: 70%;
+    height: 100%;
+  }
+}
+.content-realisation .point .glider-contain .glider .product-box .p-img-container {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+.content-realisation .point .glider-contain .glider .product-box .p-img-container .p-img {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+}
+.content-realisation .point .glider-contain .glider .product-box .p-img-container .p-img figure {
+  height: 100%;
+  width: 100%;
+}
+.content-realisation .point .glider-contain .glider .product-box img {
+  border-radius: 10px 10px 0 0;
+  filter: none;
+}
+@media screen and (min-width: 1000px) {
+  .content-realisation .point .glider-contain .glider .product-box img {
+    border-radius: 10px 0 0 10px;
+  }
+}
+@media screen and (min-width: 1000px) {
+  .content-realisation .point .glider-contain .glider .product-box .reverse-border {
+    border-radius: 0 10px 10px 0;
+  }
+}
+.content-realisation .point .glider-contain .glider .product-box .slider-btns {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  flex-direction: row;
+}
+.content-realisation .point .glider-contain .glider .product-box .slider-btns button {
+  height: 50px;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.content-realisation .point .glider-contain .glider .product-box .slider-btns button figure {
+  height: 100%;
+  width: 100%;
+}
+.content-realisation .point .glider-contain .glider .product-box .slider-btns button:nth-child(2) figure img {
+  transform: rotate(180deg);
+}
+.content-realisation .point div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+@media screen and (min-width: 1000px) {
+  .content-realisation .point div {
+    width: 30%;
+  }
+}
+.content-realisation .point div h4,
+.content-realisation .point div p {
+  margin: 10px 20px;
 }
 
 footer {
