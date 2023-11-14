@@ -1,9 +1,15 @@
-new Glider(document.querySelector('.glider'), {
+function initializeGlider(selector, prevSelector, nextSelector) {
+  new Glider(document.querySelector(selector), {
     slidesToShow: 1,
-    dots: '#dots',
     draggable: true,
+    dots: '#dots',
     arrows: {
-      prev: '.glider-prev',
-      next: '.glider-next'
+      prev: prevSelector,
+      next: nextSelector
     }
   });
+}
+
+initializeGlider('.glider', '.prev-slider-first', '.next-slider-first');
+initializeGlider('.glider-second', '.prev-slider-second', '.next-slider-second');
+initializeGlider('.glider-thirt', '.prev-slider-thirt', '.next-slider-thirt');
