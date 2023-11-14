@@ -1,20 +1,91 @@
 {% extends 'base.html.twig' %}
-
-{% block title %}Hello ContactController!{% endblock %}
-
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('style/contact.css') }}">
+{% endblock %}
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+	<section class="hero hero-contact">
+		<div class='backgroud-hero'>
+			<div class="max-width">
+				{{ form_start(formulaire, {'attr': {'class': 'formContact'}}
+				)}}
+				<div class="zonneForm zonneForm1">
+					<div class="name deuxinfo">
+						<div class="champ lastname">
+							{{ form_row(formulaire.Nom, {'attr': {'class': 'info'}, 'label_attr': {'class': 'label'}})}}
+							{# <label class="label" for="lastname">Nom*</label>
+															<input id="lastname" type="text" class="info" name="lastname" required> #}
+						</div>
+						<div class="firstname champ">
+							{{ form_row(formulaire.Prenom, {'attr': {'class': 'info'}, 'label_attr': {'class': 'label'}})}}
+							{# <label for="firstname" class="label">Prénom*</label>
+							<input id="firstname" type="text" class="info" name="firstname" required> #}
+						</div>
+					</div>
+					<div class="contacts deuxinfo">
+						<div class="champ email">
+							{{ form_row(formulaire.email, {'attr': {'class': 'info'}, 'label_attr': {'class': 'label'}})}}
+							{# <label for="email" class="label">E-mail*</label>
+							<input id="email" type="email" class="info" name="email" required> #}
+						</div>
+						<div class="champ tel">
+							{{ form_row(formulaire.Telephone, {'attr': {'class': 'info'}, 'label_attr': {'class': 'label'}})}}
+							{# <label for="phone" class="label">Telephone*</label>
+							<input id="phone" class="info" type="text" name="phone" required> #}
+						</div>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+					</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/Symphony/DuBAin/src/Controller/ContactController.php'|file_link(0) }}">src/Controller/ContactController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/Symphony/DuBAin/templates/contact/index.html.twig'|file_link(0) }}">templates/contact/index.html.twig</a></code></li>
-    </ul>
-</div>
+					<div class="champ object">
+						{{ form_row(formulaire.Object, {'attr': {'class': 'info'}, 'label_attr': {'class': 'label'}})}}
+						{# <label for="object" class="label">Object*</label>
+						<input id="object" type="text" class="info" name="object" required> #}
+					</div>
+					<div class="champ message">
+						{{ form_row(formulaire.Message, {'attr': {'class': 'info','cols':'30', 'row':'10'}, 'label_attr': {'class': 'label'}})}}
+						{# <label for="message" class="label">Message*</label>
+						<textarea name="message" id="message" cols="30" rows="10" class="info"></textarea> #}
+					</div>
+					<div class="champ confidencionality">
+						<input type="checkbox" class="info" name="confidentiality" id="Check">
+						<label for="confidencionality" class="label">
+							En soumettant ce formulaire, j'accepte que mes données personnelles soient utilisées pour me recontacter. Aucun autre traitement ne sera effectué avec mes informations. Pour connaître et exercer vos droits, veuillez consultez la
+							<a target="_blank" href="{{ asset('doc/Confidencialité.pdf') }}">Politique de confidentialité</a>.</label>
+					</div>
+					<div class="champ div-button">
+					{{ form_row(formulaire.Envoyer, {'attr': {'class': 'champ submit'}})}}
+					</div>
+					
+					{# <button class="champ submit" type="submit" name="submit"> envoyer </button> #}
+				</div>
+				<div class="zonneForm zonneForm2">
+					<div class="contactRight">
+						<div class="contentContactRight momMail">
+							<figure>
+								<img src="./img/email.svg" alt="icon mail">
+							</figure>
+							<p>db.elec.renov@gmail.com</p>
+						</div>
+						<div class="contentContactRight monAdresse">
+							<figure>
+								<img src="./img/house.svg" alt="icon hause">
+							</figure>
+							<p>5 allée de la Biscuiterie,
+																	01250, CEYZERIAT</p>
+						</div>
+						{# <div class="contentContactRight mesReseaux">
+																					<a href="https://github.com/sgjiri" target="_blank">
+																						<img src="./img/Arrow.svg" alt="icongit">
+																					</a>
+																					<a href="https://www.linkedin.com/in/jiri-fischer-453529101/" target="_blank">
+																						<img src="./Img/icons8-linkedin-entouré-100.png" alt="ikonlinkedin">
+																					</a>
+																				</div> #}
+					</div>
+				</div>
+
+				{{ form_end(formulaire) }}
+			</div>
+		</div>
+	</section>
+
 {% endblock %}
