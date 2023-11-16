@@ -5,8 +5,11 @@ namespace App\Entity;
 use App\Repository\ImageRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: ImageRepository::class)]
+#[Vich\Uploadable]
 class Image
 {
     #[ORM\Id]
@@ -20,8 +23,15 @@ class Image
     #[ORM\Column(length: 150)]
     private ?string $thumbnail = null;
 
-    #[ORM\Column(type: Types::ARRAY, nullable: true)]
-    private ?array $room = null;
+    #[ORM\Column(length: 150)]
+    private ?string $attachment = null;
+
+    #[Vich\UploadableField(mapping: 'realisation_img', fileNameProperty: 'attachment')]
+    private ?File $attachmentFile = null;
+
+    #[ORM\Column(type: Types::STRING)]
+    private ?string $room = null;
+
 
     public function getId(): ?int
     {
@@ -52,12 +62,37 @@ class Image
         return $this;
     }
 
-    public function getRoom(): ?array
+    public function getAttachment(): ?string
+    {
+        return $this->attachment;
+    }
+
+    public function setAttachment(string $attachment): self
+    {
+        $this->attachment = $attachment;
+
+        return $this;
+    }
+
+    public function getAttachmentFile(): ?File
+    {
+        return $this->attachmentFile;
+    }
+
+    public function setAttachmentFile(File $attachmentFile): self
+    {
+        $this->attachmentFile = $attachmentFile;
+
+
+        return $this;
+    }
+
+    public function getRoom(): ?string
     {
         return $this->room;
     }
 
-    public function setRoom(?array $room): static
+    public function setRoom(?string $room): static
     {
         $this->room = $room;
 
