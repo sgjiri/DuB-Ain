@@ -3,12 +3,14 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Site;
+use App\Form\Type\ImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use App\Entity\Image;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 
 
 class SiteCrudController extends AbstractCrudController
@@ -18,15 +20,15 @@ class SiteCrudController extends AbstractCrudController
         return Site::class;
     }
 
-    
+
     public function configureFields(string $pageName): iterable
     {
         return [
-            IdField::new('id'),
-            TextField::new('name'),
-            TextEditorField::new('description'),
-            
+            yield IdField::new('id')->hideOnForm(),
+            yield TextField::new('name'),
+            yield TextEditorField::new('description'),
+            yield NumberField::new('surface'),
+           yield CollectionField::new('siteImages')->setEntryType(ImageType::class)
         ];
     }
-    
 }

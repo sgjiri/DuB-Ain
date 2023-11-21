@@ -23,7 +23,7 @@ class Image
     #[ORM\Column(length: 150)]
     private ?string $thumbnail = null;
 
-    #[ORM\Column(length: 150)]
+    #[ORM\Column(length: 150, nullable: true)]
     private ?string $attachment = null;
 
     #[Vich\UploadableField(mapping: 'realisation_img', fileNameProperty: 'attachment')]
@@ -31,6 +31,10 @@ class Image
 
     #[ORM\Column(type: Types::STRING)]
     private ?string $room = null;
+
+    #[ORM\ManyToOne(targetEntity: Site::class, inversedBy: 'images')]
+    #[ORM\JoinColumn(name: 'site_id', referencedColumnName: 'id')]
+    private ?Site $site;
 
 
     public function getId(): ?int
@@ -97,5 +101,19 @@ class Image
         $this->room = $room;
 
         return $this;
+    }
+    public function getSite(): ?Site
+    {
+        return $this->site;
+    }
+    public function setSite(?Site $site): self
+    {
+        $this->site = $site;
+        return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getThumbnail();
     }
 }
