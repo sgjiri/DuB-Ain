@@ -503,6 +503,7 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   display: flex;
   flex-direction: column;
   width: 300px;
+  height: 400px !important;
   padding: 15px;
   border-radius: 10px;
   margin: 0 20px;
@@ -525,8 +526,6 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 }
 .section-slider .efect-lenear .product-box .p-img-container .p-img div img {
   height: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
 }
 .section-slider .efect-lenear .slider-btns {
   display: flex;

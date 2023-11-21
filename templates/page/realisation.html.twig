@@ -16,52 +16,62 @@
 		<div class="triangle-left"></div>
 		<div class="triangle-right"></div>
 		<div class="max-width">
-			<div class="point">
-				<div class="glider-contain">
-					<div class="glider">
-						<div class="product-box">
-							<div class="p-img-container">
-								<div class='p-img'>
-									<figure>
-										<img src="../img/salon1.jpg" class='p-img-front' alt="">
-									</figure>
+			{% for site in sites %}
+				<div class="point">
+					<div class="glider-contain">
+						<div class="glider">
+							{% for image in site.images %}
+							<div class="product-box">
+								<div class="p-img-container">
+									<div class='p-img'>
+										<figure>
+											<img src="../uploads/attachment/{{ image.attachment }}" class='p-img-front' alt="">
+										</figure>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="product-box">
-							<div class="p-img-container">
-								<div class='p-img'>
-									<figure>
-										<img src="../img/salon1.jpg" class='p-img-front' alt="">
-									</figure>
-								</div>
-							</div>
+							{% endfor %}
 						</div>
 					</div>
-				</div>
 
-				<div class="slider-btns">
-					<button aria-label="Previous" class="glider-prev prev-slider-first">
-						<figure>
-							<img src="../img/Arrow.svg" alt="fleche">
-						</figure>
-					</button>
-					<button aria-label="Next" class="glider-next next-slider-first">
-						<figure>
-							<img src="../img/Arrow.svg" alt="fleche">
-						</figure>
-					</button>
+					<div class="slider-btns">
+						<button aria-label="Previous" class="glider-prev prev-slider-first">
+							<figure>
+								<img src="../img/Arrow.svg" alt="fleche">
+							</figure>
+						</button>
+						<button aria-label="Next" class="glider-next next-slider-first">
+							<figure>
+								<img src="../img/Arrow.svg" alt="fleche">
+							</figure>
+						</button>
+					</div>
+					<div class="description-site">
+						<h4>{{ site.name }}</h4>
+						{% if site.surface %}
+						<p>Surface:
+							{{ site.surface }}
+							m2</p>
+						{% endif %}
+						{% if site.price %}
+							<p>Coût :
+								{{ site.price }}
+								€</p>
+						{% endif %}
+						{% if site.localisation %}
+						<p>Lieu :
+							{{ site.localisation }}</p>
+						{% endif %}
+						{% if site.duration %}
+						<p>Durée du chantier:
+							{{ site.duration }}
+							semaines
+						</p>
+						{% endif %}
+					</div>
 				</div>
-				<div class="description-site">
-					<h4>Rénovation d'un appartement de 60 m2 à Paris 16</h4>
-					<p>Surface: 60 m2</p>
-					<p>Coût : 42 000 €</p>
-					<p>Lieu : Paris 16</p>
-					<p>Durée du chantier: 12 semaines
-					</p>
-				</div>
-			</div>
-			<div class="point">
+			{% endfor %}
+			{# <div class="point">
 				<div class="description-site">
 					<h4>Rénovation d'un appartement de 60 m2 à Paris 16</h4>
 					<p>Surface: 60 m2</p>
@@ -150,7 +160,7 @@
 					<p>Durée du chantier: 12 semaines
 					</p>
 				</div>
-			</div>
+			</div> #}
 
 		</div>
 	</section>

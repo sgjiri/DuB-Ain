@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\SiteRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 #[ORM\Entity(repositoryClass: SiteRepository::class)]
 class Site
@@ -31,6 +33,46 @@ class Site
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+
+    #[ORM\OneToMany(mappedBy: 'site', targetEntity: Image::class)]
+    private Collection $images;
+
+    #[ORM\OneToMany(mappedBy: 'site', targetEntity: SiteImage::class, orphanRemoval: true, cascade: ['persist'])]
+    private Collection $siteImages;
+
+    public function __construct()
+    {
+        $this->images = new ArrayCollection();
+        $this->siteImages = new ArrayCollection();
+    }
+
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+            $image->setSite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->images->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getSite() === $this) {
+                $image->setSite(null);
+            }
+        }
+
+        return $this;
+    }
+
 
     public function getId(): ?int
     {
@@ -105,6 +147,36 @@ class Site
     public function setDescription(?string $description): static
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, SiteImage>
+     */
+    public function getSiteImages(): Collection
+    {
+        return $this->siteImages;
+    }
+
+    public function addSiteImage(SiteImage $siteImage): static
+    {
+        if (!$this->siteImages->contains($siteImage)) {
+            $this->siteImages->add($siteImage);
+            $siteImage->setSite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSiteImage(SiteImage $siteImage): static
+    {
+        if ($this->siteImages->removeElement($siteImage)) {
+            // set the owning side to null (unless already changed)
+            if ($siteImage->getSite() === $this) {
+                $siteImage->setSite(null);
+            }
+        }
 
         return $this;
     }
