@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\SiteImageRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
@@ -30,6 +31,9 @@ class SiteImage
     #[ORM\ManyToOne(inversedBy: 'siteImages')]
     #[ORM\JoinColumn(nullable: false)]
     private ?site $site = null;
+
+    #[ORM\Column(type: Types::STRING)]
+    private ?string $room = null;
     
 
     public function getId(): ?int
@@ -42,7 +46,7 @@ class SiteImage
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name = null): static
     {
         $this->name = $name;
 
@@ -54,7 +58,7 @@ class SiteImage
         return $this->size;
     }
 
-    public function setSize(int $size): static
+    public function setSize(int $size = null): static
     {
         $this->size = $size;
 
@@ -100,6 +104,18 @@ class SiteImage
     public function getFile():?File
     {
         return $this->file;
+    }
+
+    public function getRoom(): ?string
+    {
+        return $this->room;
+    }
+
+    public function setRoom(?string $room): static
+    {
+        $this->room = $room;
+
+        return $this;
     }
 
     public function __toString(): string

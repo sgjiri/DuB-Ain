@@ -7,16 +7,24 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class ImageType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add('file', VichImageType::class, [
-            'label' => 'Image',
-            'required' => false, // Ajoutez cette ligne si nécessaire
-            'empty_data' => '',
-        ]);
+            'label' => 'Image'
+        ])
+            ->add('room', ChoiceType::class, [
+                'label' => 'Room',
+                'choices' => [
+                    'Salle de Bain' => 'Salle de Bain',
+                    'Cuisine' => 'Cuisine',
+                    'Chambre' => 'Chambre',
+                    'Salon' => 'Salon',
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

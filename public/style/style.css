@@ -272,6 +272,13 @@ header .content-header-bottom .max-width {
 header .content-header-bottom .max-width .navigation {
   display: none;
 }
+header .content-header-bottom .max-width #navigation-mobil {
+  position: fixed;
+  top: 120px;
+}
+header .content-header-bottom .max-width #navigation-mobil.active {
+  display: block;
+}
 header .content-header-bottom .max-width .navigation-desktop {
   height: 100%;
 }
@@ -318,12 +325,26 @@ header .content-header-bottom .max-width .burger .container-burger .burgerLigne 
 }
 header .content-header-bottom .max-width .burger .container-burger .first-beurger-ligne {
   top: 0;
+  transition: transform 0.4s ease-in-out;
+}
+header .content-header-bottom .max-width .burger .container-burger .first-beurger-ligne.active {
+  transform: rotate(45deg);
+  top: 60%;
 }
 header .content-header-bottom .max-width .burger .container-burger .second-burger-ligne {
   top: 45%;
+  transition: transform 0.2s ease-in-out;
+}
+header .content-header-bottom .max-width .burger .container-burger .second-burger-ligne.active {
+  transform: scaleY(0);
 }
 header .content-header-bottom .max-width .burger .container-burger .thirt-burger-ligne {
   top: 88%;
+  transition: transform 0.4s ease-in-out;
+}
+header .content-header-bottom .max-width .burger .container-burger .thirt-burger-ligne.active {
+  transform: rotate(-45deg);
+  top: 60%;
 }
 
 .hero {

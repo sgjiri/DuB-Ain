@@ -240,6 +240,15 @@ header {
       .navigation {
         display: none;
       }
+      #navigation-mobil{
+        position: fixed;
+        top: 120px;
+          &.active{
+          display: block;
+        }
+
+
+      }
       .navigation-desktop {
         height: 100%;
         @media screen and (min-width: 700px) {
@@ -281,12 +290,27 @@ header {
           }
           .first-beurger-ligne {
             top: 0;
+            transition: transform 0.4s ease-in-out;
+            &.active {
+              transform: rotate(45deg);
+              top:60%
+          }
           }
           .second-burger-ligne {
             top: 45%;
+            transition: transform 0.2s ease-in-out;
+            &.active {
+              transform: scaleY(0);
+          }
           }
           .thirt-burger-ligne {
             top: 88%;
+            transition: transform 0.4s ease-in-out;
+
+            &.active {
+                transform: rotate(-45deg);
+                top:60%
+            }
           }
         }
       }
