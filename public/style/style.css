@@ -693,28 +693,47 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  position: relative;
+  transition: all 1s ease-in-out;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+.values .max-width .containt-values .oneValue.active {
+  transform: rotateY(-180deg);
 }
 @media screen and (min-width: 1500px) {
   .values .max-width .containt-values .oneValue {
     height: 450px;
   }
 }
-.values .max-width .containt-values .oneValue h3,
-.values .max-width .containt-values .oneValue p {
+.values .max-width .containt-values .oneValue .oneValueSite {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+.values .max-width .containt-values .oneValue .oneValueSite h3,
+.values .max-width .containt-values .oneValue .oneValueSite p {
   color: #fff;
   padding: 20px;
   text-align: center;
 }
-.values .max-width .containt-values .oneValue h3 {
+.values .max-width .containt-values .oneValue .oneValueSite h3 {
   text-transform: uppercase;
   font-family: "Poppins-Bold", sans-serif;
   font-size: 1.8em;
 }
-.values .max-width .containt-values .oneValue figure {
+.values .max-width .containt-values .oneValue .oneValueSite figure {
   padding: 20px;
 }
-.values .max-width .containt-values .oneValue figure img {
+.values .max-width .containt-values .oneValue .oneValueSite figure img {
   filter: none;
+}
+.values .max-width .containt-values .oneValue .firstValueSite {
+  transform: rotateY(180deg);
+}
+.values .max-width .containt-values .oneValue .secondValueSite {
+  background-color: #fff;
+  backface-visibility: hidden;
 }
 
 .hero-prestation {

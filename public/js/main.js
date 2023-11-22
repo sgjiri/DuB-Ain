@@ -48,6 +48,7 @@ new Glider(document.querySelector('.glider'), {
             if (entry.target === section && entry.isIntersecting) {
               let elementsRight = section.querySelectorAll(".animation-right");
               let elementsLeft = section.querySelectorAll(".animation-left");
+              let cardElement = section.querySelectorAll(".oneValue");
   
               elementsRight.forEach(function (element, index) {
                 element.style.animation = `slideInRigth 1s ${index * 0.3}s forwards`;
@@ -55,6 +56,9 @@ new Glider(document.querySelector('.glider'), {
   
               elementsLeft.forEach(function (element, index) {
                 element.style.animation = `slideIn 1s ${index * 0.3}s forwards`;
+              });
+              cardElement.forEach(function (element, index) {
+                element.classList.add('active');
               });
   
               // Désactive l'observer après l'animation
