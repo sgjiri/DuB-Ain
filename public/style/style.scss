@@ -269,7 +269,7 @@ header {
             list-style-type: none;
             height: 10%;
             width: 100%;
-            a{
+            a {
               padding: 0;
               text-align: center;
               width: 100%;
@@ -392,8 +392,6 @@ header {
       width: 55%;
       animation: 1s ease 0s 1 normal forwards running slideIn;
 
-
-
       @media screen and (min-width: 600px) {
         width: 45%;
       }
@@ -443,7 +441,6 @@ header {
     align-items: center;
 
     div {
-
       display: flex;
       flex-direction: column;
       padding: 0px 10px;
@@ -625,28 +622,48 @@ header {
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        position: relative;
+        transition: all 1s ease-in-out;
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        &.active {
+          transform: rotateY(-180deg);
+      }
 
         @media screen and (min-width: 1500px) {
           height: 450px;
         }
-
-        h3,
-        p {
-          color: $white;
-          padding: 20px;
-          text-align: center;
-        }
-        h3 {
-          text-transform: uppercase;
-          font-family: $Poppins-Bold;
-          font-size: 1.8em;
-        }
-
-        figure {
-          padding: 20px;
-          img {
-            filter: none;
+        .oneValueSite {
+          height: 100%;
+          width: 100%;
+          position: absolute;
+          h3,
+          p {
+            color: $white;
+            padding: 20px;
+            text-align: center;
           }
+          h3 {
+            text-transform: uppercase;
+            font-family: $Poppins-Bold;
+            font-size: 1.8em;
+          }
+
+          figure {
+            padding: 20px;
+            img {
+              filter: none;
+            }
+          }
+        }
+        .firstValueSite{
+          transform: rotateY(180deg);
+          
+          
+        }
+        .secondValueSite{
+          background-color: $white;
+          backface-visibility: hidden;
         }
       }
     }
@@ -1202,7 +1219,7 @@ header {
       align-items: center;
       height: 50px;
       flex-direction: row;
-      
+
       @media screen and (min-width: 1000px) {
         width: 70%;
         bottom: 10px;
@@ -1214,7 +1231,7 @@ header {
         position: relative;
         top: 0;
         left: 0;
-        
+
         figure {
           height: 100%;
           width: 100%;
@@ -1233,9 +1250,10 @@ header {
       left: auto;
     }
     &:nth-child(even) {
-      .slider-btns{right: 0;
-        left: auto;}
-      
+      .slider-btns {
+        right: 0;
+        left: auto;
+      }
     }
   }
 }
@@ -1311,20 +1329,20 @@ footer {
   0% {
     transform: translateX(-100%);
     opacity: 0;
-    }
-  100%{
+  }
+  100% {
     transform: translateX(0%);
     opacity: 1;
-    }
+  }
 }
 
 @keyframes slideInRigth {
   0% {
     transform: translateX(100%);
     opacity: 0;
-    }
-  100%{
+  }
+  100% {
     transform: translateX(0%);
     opacity: 1;
-    }
+  }
 }
