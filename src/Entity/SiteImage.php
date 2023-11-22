@@ -16,7 +16,7 @@ class SiteImage
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
-    #[Vich\UploadableField(mapping: 'realisation_img', fileNameProperty: 'name', size:'size')]
+    #[Vich\UploadableField(mapping: 'realisation_img', fileNameProperty: 'name', size: 'size')]
     private ?File $file = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -34,7 +34,7 @@ class SiteImage
 
     #[ORM\Column(type: Types::STRING)]
     private ?string $room = null;
-    
+
 
     public function getId(): ?int
     {
@@ -93,7 +93,7 @@ class SiteImage
     {
         $this->file = $file;
 
-        if(null != $file){
+        if (null != $file) {
             $this->updaedAt = new \DateTimeImmutable();
         }
 
@@ -101,7 +101,7 @@ class SiteImage
         return $this;
     }
 
-    public function getFile():?File
+    public function getFile(): ?File
     {
         return $this->file;
     }
@@ -120,6 +120,6 @@ class SiteImage
 
     public function __toString(): string
     {
-        return $this->name;
+        return $this->name ?? '';
     }
 }
