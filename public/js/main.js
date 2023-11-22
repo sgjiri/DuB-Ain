@@ -37,3 +37,38 @@ new Glider(document.querySelector('.glider'), {
           }
       ]
   });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll(".animated-section");
+    
+    sections.forEach(function (section) {
+      const observer = new IntersectionObserver(
+        function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.target === section && entry.isIntersecting) {
+              let elementsRight = section.querySelectorAll(".animation-right");
+              let elementsLeft = section.querySelectorAll(".animation-left");
+  
+              elementsRight.forEach(function (element, index) {
+                element.style.animation = `slideInRigth 1s ${index * 0.3}s forwards`;
+              });
+  
+              elementsLeft.forEach(function (element, index) {
+                element.style.animation = `slideIn 1s ${index * 0.3}s forwards`;
+              });
+  
+              // Désactive l'observer après l'animation
+              observer.disconnect();
+            }
+          });
+        },
+        {
+          root: null,
+          rootMargin: "0px",
+          threshold: 0.6,
+        }
+      );
+  
+      observer.observe(section);
+    });
+  });

@@ -157,6 +157,7 @@ h1 {
   position: absolute;
   top: 0;
   right: 0;
+  transform: translateX(100%);
   height: 100%;
   width: 50%;
   background-color: $brownBehind;
@@ -170,6 +171,7 @@ h1 {
   width: 50%;
   background-color: $turquoiseBehind;
   clip-path: polygon(0 0, 0% 100%, 100% 50%);
+  transform: translateX(-100%);
 }
 .max-width {
   width: 85%;
@@ -240,6 +242,49 @@ header {
       .navigation {
         display: none;
       }
+      #navigation-mobil {
+        position: fixed;
+        top: 120px;
+        right: -5000px;
+        height: calc(100vh - 120px);
+        width: 100%;
+        background: $blackOpacity;
+        display: block;
+        transition: 0.5s all;
+        &.active {
+          right: 0px;
+          @media screen and (min-width: 700px) {
+            display: none;
+            right: -5000px;
+          }
+        }
+        ul {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          li {
+            list-style-type: none;
+            height: 10%;
+            width: 100%;
+            a{
+              padding: 0;
+              text-align: center;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-size: 1.3em;
+
+              @media screen and (min-width: 500px) {
+                font-size: 1.5em;
+              }
+            }
+          }
+        }
+      }
       .navigation-desktop {
         height: 100%;
         @media screen and (min-width: 700px) {
@@ -281,12 +326,27 @@ header {
           }
           .first-beurger-ligne {
             top: 0;
+            transition: transform 0.4s ease-in-out;
+            &.active {
+              transform: rotate(45deg);
+              top: 60%;
+            }
           }
           .second-burger-ligne {
             top: 45%;
+            transition: transform 0.2s ease-in-out;
+            &.active {
+              transform: scaleY(0);
+            }
           }
           .thirt-burger-ligne {
             top: 88%;
+            transition: transform 0.4s ease-in-out;
+
+            &.active {
+              transform: rotate(-45deg);
+              top: 60%;
+            }
           }
         }
       }
@@ -307,12 +367,12 @@ header {
     .demoB.right {
       position: absolute;
       top: 25%;
-      left: 0;
       width: 0;
       height: 0;
       border-top: 60vh solid transparent;
       border-bottom: 60vh solid transparent;
       border-left: 90vw solid $blackOpacity;
+      animation: 1s ease 0s 1 normal forwards running slideIn;
 
       @media screen and (min-width: 600px) {
         border-left: 80vw solid $blackOpacity;
@@ -330,6 +390,10 @@ header {
       left: 8%;
       bottom: 5%;
       width: 55%;
+      animation: 1s ease 0s 1 normal forwards running slideIn;
+
+
+
       @media screen and (min-width: 600px) {
         width: 45%;
       }
@@ -367,6 +431,7 @@ header {
   padding: 100px 0;
   position: relative;
   height: 800px;
+  overflow: hidden;
   @media screen and (min-width: 1300px) {
     height: 600px;
   }
@@ -378,11 +443,13 @@ header {
     align-items: center;
 
     div {
+
       display: flex;
       flex-direction: column;
       padding: 0px 10px;
       width: 90%;
       z-index: 50;
+      transform: translateX(-200%);
       @media screen and (min-width: 1300px) {
         width: 40%;
         padding: 50px;
@@ -392,6 +459,7 @@ header {
       }
     }
     figure {
+      transform: translateX(300%);
       height: 400px;
       width: 95%;
       @media screen and (min-width: 1300px) {
@@ -662,10 +730,9 @@ header {
     align-items: center;
     flex-direction: column;
 
-    &:nth-child(2) {
-      flex-direction: column-reverse;
+    &:nth-child(even) {
       @media screen and (min-width: 1000px) {
-        flex-direction: row;
+        flex-direction: row-reverse;
       }
     }
 
@@ -776,7 +843,7 @@ header {
             width: 90%;
             margin-top: 15px;
 
-            .label{
+            .label {
               color: #ffffff;
               font-size: 1.5em;
               width: 100%;
@@ -790,27 +857,26 @@ header {
               }
             }
 
-            div{
+            div {
               width: 100%;
 
-  
               .info {
                 width: 100%;
                 font-size: 1.2em;
                 color: $grey;
                 border-radius: 5px;
                 margin: 10px 0;
-  
+
                 @media screen and (max-width: 374px) {
                   font-size: 1em;
                 }
               }
-              #contact_Message{
+              #contact_Message {
                 height: 300px;
               }
             }
           }
-          .div-button{
+          .div-button {
             margin: 20px 0 50px;
           }
 
@@ -903,7 +969,7 @@ header {
               }
             }
           }
-          .name{
+          .name {
             margin-top: 30px;
           }
         }
@@ -1136,6 +1202,7 @@ header {
       align-items: center;
       height: 50px;
       flex-direction: row;
+      
       @media screen and (min-width: 1000px) {
         width: 70%;
         bottom: 10px;
@@ -1147,6 +1214,7 @@ header {
         position: relative;
         top: 0;
         left: 0;
+        
         figure {
           height: 100%;
           width: 100%;
@@ -1163,6 +1231,11 @@ header {
     .slider-btns-second {
       right: 0;
       left: auto;
+    }
+    &:nth-child(even) {
+      .slider-btns{right: 0;
+        left: auto;}
+      
     }
   }
 }
@@ -1232,4 +1305,26 @@ footer {
       align-items: center;
     }
   }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+    }
+  100%{
+    transform: translateX(0%);
+    opacity: 1;
+    }
+}
+
+@keyframes slideInRigth {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+    }
+  100%{
+    transform: translateX(0%);
+    opacity: 1;
+    }
 }

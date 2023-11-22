@@ -34,7 +34,6 @@ class Site
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\OneToMany(mappedBy: 'site', targetEntity: Image::class)]
     private Collection $images;
 
     #[ORM\OneToMany(mappedBy: 'site', targetEntity: SiteImage::class, orphanRemoval: true, cascade: ['persist'])]
@@ -84,7 +83,7 @@ class Site
         return $this->name;
     }
 
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -96,7 +95,7 @@ class Site
         return $this->surface;
     }
 
-    public function setSurface(int $surface): static
+    public function setSurface(int $surface): self
     {
         $this->surface = $surface;
 
@@ -108,7 +107,7 @@ class Site
         return $this->price;
     }
 
-    public function setPrice(?int $price): static
+    public function setPrice(?int $price): self
     {
         $this->price = $price;
 
@@ -120,7 +119,7 @@ class Site
         return $this->localisation;
     }
 
-    public function setLocalisation(?string $localisation): static
+    public function setLocalisation(?string $localisation): self
     {
         $this->localisation = $localisation;
 
@@ -132,7 +131,7 @@ class Site
         return $this->duration;
     }
 
-    public function setDuration(?int $duration): static
+    public function setDuration(?int $duration): self
     {
         $this->duration = $duration;
 
@@ -144,7 +143,7 @@ class Site
         return $this->description;
     }
 
-    public function setDescription(?string $description): static
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -159,7 +158,7 @@ class Site
         return $this->siteImages;
     }
 
-    public function addSiteImage(SiteImage $siteImage): static
+    public function addSiteImage(SiteImage $siteImage): self
     {
         if (!$this->siteImages->contains($siteImage)) {
             $this->siteImages->add($siteImage);
@@ -169,7 +168,7 @@ class Site
         return $this;
     }
 
-    public function removeSiteImage(SiteImage $siteImage): static
+    public function removeSiteImage(SiteImage $siteImage): self
     {
         if ($this->siteImages->removeElement($siteImage)) {
             // set the owning side to null (unless already changed)
