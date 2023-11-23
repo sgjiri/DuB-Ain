@@ -162,6 +162,7 @@ h1 {
   width: 50%;
   background-color: $brownBehind;
   clip-path: polygon(0 50%, 100% 100%, 100% 0);
+  animation: 1s ease 0s 1 normal forwards running slideInRigth;
 }
 .triangle-left {
   position: absolute;
@@ -172,6 +173,7 @@ h1 {
   background-color: $turquoiseBehind;
   clip-path: polygon(0 0, 0% 100%, 100% 50%);
   transform: translateX(-100%);
+  animation: 1s ease 0s 1 normal forwards running slideIn;
 }
 .max-width {
   width: 85%;
@@ -618,17 +620,12 @@ header {
         z-index: 50;
         border-radius: 10px;
         margin: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
-        position: relative;
         transition: all 1s ease-in-out;
         transform-style: preserve-3d;
         perspective: 1000px;
         &.active {
           transform: rotateY(-180deg);
-      }
+        }
 
         @media screen and (min-width: 1500px) {
           height: 450px;
@@ -656,14 +653,18 @@ header {
             }
           }
         }
-        .firstValueSite{
+        .firstValueSite {
           transform: rotateY(180deg);
-          
-          
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          align-items: center;
+          position: relative;
         }
-        .secondValueSite{
+        .secondValueSite {
           background-color: $white;
           backface-visibility: hidden;
+          top: 0;
         }
       }
     }
@@ -1124,7 +1125,9 @@ header {
     }
   }
 }
-
+.content-realisation {
+  position: relative;
+}
 .content-realisation {
   .point {
     -webkit-box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.3);
@@ -1139,6 +1142,50 @@ header {
     border-radius: 10px;
     overflow: hidden;
     filter: none;
+
+    &.active {
+      position: fixed;
+      height: 100vh;
+      width: 100vw;
+      top: 0;
+      left: 0;
+      z-index: 300;
+      margin: 0;
+      background-color: $blackOpacity;
+      border-radius: 0;
+
+      .description-site {
+        display: none;
+      }
+      .glider-contain {
+        height: 85%;
+        .glider {
+          height: 100%;
+          width: 100%;
+          .product-box {
+            .p-img-container {
+              cursor: default !important;
+              figure{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                  object-fit: contain;
+                  width: 80%;
+                  height: 90%;
+                }
+
+              }
+              
+            }
+          }
+        }
+      }
+      .slider-btns{
+        width: 100%;
+        bottom: 35px;
+      }
+    }
     @media screen and (min-width: 1000px) {
       height: 400px;
     }
@@ -1170,6 +1217,7 @@ header {
               height: 100%;
               width: 100%;
               padding: 0;
+              cursor: pointer;
               .p-img {
                 height: 100%;
                 width: 100%;

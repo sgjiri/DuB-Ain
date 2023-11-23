@@ -185,6 +185,7 @@ h1 {
   background-color: #fcebd4;
   -webkit-clip-path: polygon(0 50%, 100% 100%, 100% 0);
           clip-path: polygon(0 50%, 100% 100%, 100% 0);
+  animation: 1s ease 0s 1 normal forwards running slideInRigth;
 }
 
 .triangle-left {
@@ -197,6 +198,7 @@ h1 {
   -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
           clip-path: polygon(0 0, 0% 100%, 100% 50%);
   transform: translateX(-100%);
+  animation: 1s ease 0s 1 normal forwards running slideIn;
 }
 
 .max-width {
@@ -689,11 +691,6 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   z-index: 50;
   border-radius: 10px;
   margin: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
   transition: all 1s ease-in-out;
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -730,10 +727,16 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 }
 .values .max-width .containt-values .oneValue .firstValueSite {
   transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
 }
 .values .max-width .containt-values .oneValue .secondValueSite {
   background-color: #fff;
   backface-visibility: hidden;
+  top: 0;
 }
 
 .hero-prestation {
@@ -1215,6 +1218,10 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   }
 }
 
+.content-realisation {
+  position: relative;
+}
+
 .content-realisation .point {
   box-shadow: 5px 4px 8px 0px rgba(0, 0, 0, 0.3);
   height: auto;
@@ -1227,6 +1234,45 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   border-radius: 10px;
   overflow: hidden;
   filter: none;
+}
+.content-realisation .point.active {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  margin: 0;
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 0;
+}
+.content-realisation .point.active .description-site {
+  display: none;
+}
+.content-realisation .point.active .glider-contain {
+  height: 85%;
+}
+.content-realisation .point.active .glider-contain .glider {
+  height: 100%;
+  width: 100%;
+}
+.content-realisation .point.active .glider-contain .glider .product-box .p-img-container {
+  cursor: default !important;
+}
+.content-realisation .point.active .glider-contain .glider .product-box .p-img-container figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.content-realisation .point.active .glider-contain .glider .product-box .p-img-container figure img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 80%;
+  height: 90%;
+}
+.content-realisation .point.active .slider-btns {
+  width: 100%;
+  bottom: 35px;
 }
 @media screen and (min-width: 1000px) {
   .content-realisation .point {
@@ -1267,6 +1313,7 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   height: 100%;
   width: 100%;
   padding: 0;
+  cursor: pointer;
 }
 .content-realisation .point .glider-contain .glider .glider-track .product-box .p-img-container .p-img {
   height: 100%;

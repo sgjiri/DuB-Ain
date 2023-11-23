@@ -55,9 +55,9 @@ new Glider(document.querySelector('.glider'), {
               });
   
               elementsLeft.forEach(function (element, index) {
-                element.style.animation = `slideIn 1s ${index * 0.3}s forwards`;
+                element.style.animation = `slideIn 1s 0.5s forwards`;
               });
-              cardElement.forEach(function (element, index) {
+              cardElement.forEach(function (element) {
                 element.classList.add('active');
               });
   
