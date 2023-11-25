@@ -19,7 +19,7 @@ function initializeGlider(slider, prev, next) {
 
 const point = document.querySelectorAll(".point");
 const glider = document.querySelectorAll(".glider");
-console.log(glider);
+const closeSlider = document.querySelectorAll(".closeSlider");
 const gliderInstances = [];
 
 for (let i = 0; i < point.length; i++) {
@@ -35,11 +35,19 @@ for (let i = 0; i < point.length; i++) {
     gliderInstances.push(gliderInstance);
 
     glider[index].addEventListener("click", function () {
-      point[index].classList.add('active');
+      point[index].classList.add("active");
       gliderInstance.init(true);
     });
+    
+    console.log(closeSlider[index]);
+    closeSlider[index].addEventListener("click", function () {
+        point[index].classList.remove("active");
+     });
+    
   })(i);
 }
+
+
 
 // function initializeGlider(selector, prevSelector, nextSelector) {
 //   new Glider(document.querySelector(selector), {

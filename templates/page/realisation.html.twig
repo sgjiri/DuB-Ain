@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-	<section class="hero hero-prestation">
+	<section class="hero hero-prestation animated-section">
 		<div class='backgroud-hero backgroud-hero-renovation'>
-			<div class="triangle-right">
+			<div class="triangle-right animation-right">
 				<div class="texte-hero">
 					<h1>DU B’AIN AU SALON</h1>
 					<p class='first-p-realisation'>mes plus belle réalisations</p>
@@ -12,9 +12,9 @@
 			<div class="max-width"></div>
 		</div>
 	</section>
-	<section class='content-sdb content-realisation'>
-		<div class="triangle-left"></div>
-		<div class="triangle-right"></div>
+	<section class='content-sdb content-realisation animated-section'>
+		<div class="triangle-left triangle-left-fix"></div>
+		<div class="triangle-right triangle-right-fix"></div>
 		<div class="max-width">
 			{% for site in sites %}
 				<div class="point">
@@ -29,9 +29,12 @@
 										</figure>
 									</div>
 								</div>
+								
 							</div>
 							{% endfor %}
+							
 						</div>
+						<span class='closeSlider'>X</span>
 					</div>
 
 					<div class="slider-btns">
@@ -69,6 +72,7 @@
 						</p>
 						{% endif %}
 					</div>
+					
 				</div>
 			{% endfor %}
 		</div>
