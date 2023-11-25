@@ -111,7 +111,7 @@ a {
   letter-spacing: 0;
 }
 
-button {
+.btn-contact {
   padding: 10px;
   border-radius: 10px;
   border: none;
@@ -120,22 +120,31 @@ button {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-button:hover {
+@media screen and (min-width: 1000px) {
+  .btn-contact {
+    width: 200px;
+  }
+}
+.btn-contact:hover {
   transform: scale(1.1);
 }
 @media screen and (min-width: 600px) {
-  button {
+  .btn-contact {
     font-size: 1em;
   }
 }
 @media screen and (min-width: 1000px) {
-  button {
+  .btn-contact {
     font-size: 1.2em;
   }
 }
 @media screen and (min-width: 1500px) {
-  button {
+  .btn-contact {
     font-size: 1.4em;
   }
 }
@@ -187,6 +196,10 @@ h1 {
           clip-path: polygon(0 50%, 100% 100%, 100% 0);
 }
 
+.triangle-right-fix {
+  transform: translateX(0);
+}
+
 .triangle-left {
   position: absolute;
   top: 0;
@@ -197,6 +210,10 @@ h1 {
   -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
           clip-path: polygon(0 0, 0% 100%, 100% 50%);
   transform: translateX(-100%);
+}
+
+.triangle-left-fix {
+  transform: translateX(0);
 }
 
 .max-width {
@@ -323,7 +340,7 @@ header .content-header-bottom .max-width #navigation-mobil ul li a {
 header .content-header-bottom .max-width .navigation-desktop {
   height: 100%;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
   header .content-header-bottom .max-width .navigation-desktop {
     display: block;
   }
@@ -335,11 +352,16 @@ header .content-header-bottom .max-width .navigation-desktop {
     list-style-type: none;
   }
   header .content-header-bottom .max-width .navigation-desktop ul li a {
-    font-size: 0.8em;
+    font-size: 0.7em;
     line-height: 70px;
   }
 }
-@media screen and (min-width: 700px) and (min-width: 920px) {
+@media screen and (min-width: 800px) and (min-width: 920px) {
+  header .content-header-bottom .max-width .navigation-desktop ul li a {
+    font-size: 0.9em;
+  }
+}
+@media screen and (min-width: 800px) and (min-width: 1300px) {
   header .content-header-bottom .max-width .navigation-desktop ul li a {
     font-size: 1.2em;
   }
@@ -349,7 +371,7 @@ header .content-header-bottom .max-width .burger {
   height: 35%;
   display: block;
 }
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 800px) {
   header .content-header-bottom .max-width .burger {
     display: none;
   }
@@ -689,11 +711,6 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   z-index: 50;
   border-radius: 10px;
   margin: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  position: relative;
   transition: all 1s ease-in-out;
   transform-style: preserve-3d;
   perspective: 1000px;
@@ -730,10 +747,16 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 }
 .values .max-width .containt-values .oneValue .firstValueSite {
   transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
 }
 .values .max-width .containt-values .oneValue .secondValueSite {
   background-color: #fff;
   backface-visibility: hidden;
+  top: 0;
 }
 
 .hero-prestation {
@@ -822,6 +845,7 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  position: relative;
 }
 @media screen and (min-width: 1000px) {
   .content-sdb .point:nth-child(even) {
@@ -891,25 +915,33 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   width: 100%;
   height: 90%;
   border-radius: 20px;
+  margin: 200px 0;
+}
+.hero-contact .backgroud-hero .max-width .formContact h2 {
+  text-align: center;
+  font-size: 2em;
+  color: #f2b054;
+  width: 100%;
+}
+.hero-contact .backgroud-hero .max-width .formContact .zones {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 200px 0;
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact {
+  .hero-contact .backgroud-hero .max-width .formContact .zones {
     flex-direction: column;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm {
   height: 100%;
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm {
     height: 50%;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 {
   width: 70%;
   display: flex;
   flex-direction: column;
@@ -917,28 +949,28 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   align-items: center;
 }
 @media screen and (max-width: 1300px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 {
     width: 60%;
   }
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 {
     margin-top: 30px;
     width: 100%;
     height: 90%;
   }
 }
 @media screen and (max-width: 799px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 {
     height: 80%;
   }
 }
 @media screen and (max-width: 566px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 {
     height: 85%;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .champ {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -946,25 +978,25 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   width: 90%;
   margin-top: 15px;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .champ .label {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ .label {
   color: #ffffff;
   font-size: 1.5em;
   width: 100%;
 }
 @media screen and (max-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .champ .label {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ .label {
     font-size: 1.2em;
   }
 }
 @media screen and (max-width: 374px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .champ .label {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ .label {
     font-size: 1em;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .champ div {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div {
   width: 100%;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .champ div .info {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .info {
   width: 100%;
   font-size: 1.2em;
   color: #3f3838;
@@ -972,21 +1004,21 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   margin: 10px 0;
 }
 @media screen and (max-width: 374px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .champ div .info {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .info {
     font-size: 1em;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .champ div #contact_Message {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div #contact_Message {
   height: 300px;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .div-button {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .div-button {
   margin: 20px 0 50px;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .confidencionality {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality {
   flex-direction: row;
   position: relative;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .confidencionality .info {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .info {
   position: absolute;
   width: 7%;
   height: 20px;
@@ -994,37 +1026,37 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   top: 1%;
 }
 @media screen and (max-width: 1368px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .confidencionality .info {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .info {
     top: 0;
   }
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .confidencionality .info {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .info {
     height: 15px;
     top: 2px;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .confidencionality .label {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .label {
   font-size: 1.2em;
   text-indent: 7%;
 }
 @media screen and (max-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .confidencionality .label {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .label {
     text-indent: 10%;
   }
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .confidencionality .label {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .label {
     font-size: 1rem;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .confidencionality .label a {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .label a {
   text-decoration: underline;
   text-transform: lowercase;
   display: inline;
   padding: 0;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .submit {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .submit {
   width: 200px;
   align-self: flex-start;
   border: none;
@@ -1044,37 +1076,37 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   margin-bottom: 20px;
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .submit {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .submit {
     align-self: center;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .submit:hover {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .submit:hover {
   opacity: 0.8;
   transform: scale(1.1);
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .deuxinfo {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .deuxinfo {
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
 }
 @media screen and (max-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .deuxinfo {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .deuxinfo {
     flex-direction: column;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .deuxinfo .champ {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .deuxinfo .champ {
   width: 40%;
 }
 @media screen and (max-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .deuxinfo .champ {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .deuxinfo .champ {
     width: 90%;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm1 .name {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .name {
   margin-top: 30px;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm2 {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 {
   width: 30%;
   display: flex;
   flex-direction: column;
@@ -1082,28 +1114,28 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   height: 100%;
 }
 @media screen and (max-width: 1300px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 {
     width: 40%;
   }
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 {
     width: 100%;
     height: 10%;
     margin-bottom: 30px;
   }
 }
 @media screen and (max-width: 799px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 {
     height: 20%;
   }
 }
 @media screen and (max-width: 566px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 {
     height: 15%;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight {
   height: 40%;
   width: 100%;
   display: flex;
@@ -1112,19 +1144,19 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   margin-left: 20px;
 }
 @media screen and (max-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight {
     margin-left: 5px;
   }
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight {
     height: 100%;
     margin-left: none;
     align-items: center;
     justify-content: center;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight {
   height: 33%;
   width: 90%;
   display: flex;
@@ -1134,85 +1166,90 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   margin: 20px 0;
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight {
     height: 100%;
     justify-content: center;
   }
 }
 @media screen and (max-width: 799px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight {
     height: 50%;
   }
 }
 @media screen and (max-width: 566px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight {
     height: 33%;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight figure {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight figure {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 10px 0;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight figure img {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight figure img {
   height: 60%;
 }
 @media screen and (max-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight figure img {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight figure img {
     height: 50%;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight p {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight p {
   margin-left: 25px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   height: 100%;
   color: #ffffff;
+  text-align: center;
 }
 @media screen and (min-width: 1700px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight p {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight p {
     font-size: 1.3em;
   }
 }
 @media screen and (min-width: 1500px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight p {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight p {
     font-size: 1.2em;
   }
 }
 @media screen and (min-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight p {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight p {
     font-size: 1.1em;
   }
 }
 @media screen and (min-width: 500px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight p {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight p {
     font-size: 1em;
   }
 }
 @media screen and (max-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .contentContactRight p {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .contentContactRight p {
     margin-left: 10px;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .mesReseaux {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .mesReseaux {
   justify-content: center;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .mesReseaux a {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .mesReseaux a {
   margin: 0 10px;
   height: 100%;
   display: flex;
   align-items: center;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .mesReseaux a img {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .mesReseaux a img {
   height: 60%;
 }
 @media screen and (max-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zonneForm2 .contactRight .mesReseaux a img {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm2 .contactRight .mesReseaux a img {
     height: 50%;
   }
+}
+
+.content-realisation {
+  position: relative;
 }
 
 .content-realisation .point {
@@ -1236,12 +1273,24 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 .content-realisation .point .glider-contain {
   width: 100%;
   height: 300px;
+  position: relative;
 }
 @media screen and (min-width: 1000px) {
   .content-realisation .point .glider-contain {
     width: 70%;
     height: 100%;
   }
+}
+.content-realisation .point .glider-contain span {
+  position: absolute;
+  z-index: 400;
+  top: 50px;
+  right: 50px;
+  color: #fff;
+  display: none;
+  cursor: pointer;
+  font-size: 2em;
+  font-weight: bold;
 }
 .content-realisation .point .glider-contain .glider {
   height: 100%;
@@ -1267,6 +1316,7 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   height: 100%;
   width: 100%;
   padding: 0;
+  cursor: pointer;
 }
 .content-realisation .point .glider-contain .glider .glider-track .product-box .p-img-container .p-img {
   height: 100%;
@@ -1339,6 +1389,50 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 .content-realisation .point:nth-child(even) .slider-btns {
   right: 0;
   left: auto;
+}
+.content-realisation .point.active {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 300;
+  margin: 0;
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 0;
+}
+.content-realisation .point.active .description-site {
+  display: none;
+}
+.content-realisation .point.active .glider-contain {
+  height: 85%;
+}
+.content-realisation .point.active .glider-contain span {
+  display: block !important;
+}
+.content-realisation .point.active .glider-contain .glider {
+  height: 100%;
+  width: 100%;
+}
+.content-realisation .point.active .glider-contain .glider .product-box .p-img-container {
+  cursor: default !important;
+}
+.content-realisation .point.active .glider-contain .glider .product-box .p-img-container figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.content-realisation .point.active .glider-contain .glider .product-box .p-img-container figure img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 80%;
+  height: 90%;
+}
+.content-realisation .point.active .slider-btns {
+  width: 100%;
+  bottom: 35px;
+  top: auto;
 }
 
 footer {

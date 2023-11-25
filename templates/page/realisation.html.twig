@@ -1,8 +1,8 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-	<section class="hero hero-prestation">
+	<section class="hero hero-prestation animated-section">
 		<div class='backgroud-hero backgroud-hero-renovation'>
-			<div class="triangle-right">
+			<div class="triangle-right animation-right">
 				<div class="texte-hero">
 					<h1>DU B’AIN AU SALON</h1>
 					<p class='first-p-realisation'>mes plus belle réalisations</p>
@@ -12,9 +12,9 @@
 			<div class="max-width"></div>
 		</div>
 	</section>
-	<section class='content-sdb content-realisation'>
-		<div class="triangle-left"></div>
-		<div class="triangle-right"></div>
+	<section class='content-sdb content-realisation animated-section'>
+		<div class="triangle-left triangle-left-fix"></div>
+		<div class="triangle-right triangle-right-fix"></div>
 		<div class="max-width">
 			{% for site in sites %}
 				<div class="point">
@@ -29,9 +29,12 @@
 										</figure>
 									</div>
 								</div>
+								
 							</div>
 							{% endfor %}
+							
 						</div>
+						<span class='closeSlider'>X</span>
 					</div>
 
 					<div class="slider-btns">
@@ -69,99 +72,9 @@
 						</p>
 						{% endif %}
 					</div>
+					
 				</div>
 			{% endfor %}
-			{# <div class="point">
-				<div class="description-site">
-					<h4>Rénovation d'un appartement de 60 m2 à Paris 16</h4>
-					<p>Surface: 60 m2</p>
-					<p>Coût : 42 000 €</p>
-					<p>Lieu : Paris 16</p>
-					<p>Durée du chantier: 12 semaines
-					</p>
-				</div>
-				<div class="glider-contain">
-					<div class="glider glider-second">
-						<div class="product-box">
-							<div class="p-img-container">
-								<div class='p-img'>
-									<figure>
-										<img src="../img/salon1.jpg" class='p-img-front' alt="">
-									</figure>
-								</div>
-							</div>
-						</div>
-						<div class="product-box">
-							<div class="p-img-container">
-								<div class='p-img'>
-									<figure>
-										<img src="../img/salon1.jpg" class='p-img-front' alt="">
-									</figure>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="slider-btns slider-btns-second">
-					<button aria-label="Previous" class="glider-prev prev-slider-second">
-						<figure>
-							<img src="../img/Arrow.svg" alt="fleche">
-						</figure>
-					</button>
-					<button aria-label="Next" class="glider-next next-slider-second">
-						<figure>
-							<img src="../img/Arrow.svg" alt="fleche">
-						</figure>
-					</button>
-				</div>
-			</div>
-			<div class="point">
-				<div class="glider-contain">
-					<div class="glider glider-thirt">
-						<div class="product-box">
-							<div class="p-img-container">
-								<div class='p-img'>
-									<figure>
-										<img src="../img/salon1.jpg" class='p-img-front' alt="">
-									</figure>
-								</div>
-							</div>
-						</div>
-						<div class="product-box">
-							<div class="p-img-container">
-								<div class='p-img'>
-									<figure>
-										<img src="../img/salon1.jpg" class='p-img-front' alt="">
-									</figure>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="slider-btns">
-					<button aria-label="Previous" class="glider-prev prev-slider-thirt">
-						<figure>
-							<img src="../img/Arrow.svg" alt="fleche">
-						</figure>
-					</button>
-					<button aria-label="Next" class="glider-next next-slider-thirt">
-						<figure>
-							<img src="../img/Arrow.svg" alt="fleche">
-						</figure>
-					</button>
-				</div>
-				<div class="description-site">
-					<h4>Rénovation d'un appartement de 60 m2 à Paris 16</h4>
-					<p>Surface: 60 m2</p>
-					<p>Coût : 42 000 €</p>
-					<p>Lieu : Paris 16</p>
-					<p>Durée du chantier: 12 semaines
-					</p>
-				</div>
-			</div> #}
-
 		</div>
 	</section>
 	{% block js %}

@@ -10,7 +10,7 @@
 				<h1>DU B’AIN AU SALON</h1>
 				<p>Fiez-vous à un artisan expérimenté en rénovation de votre bien du salle de bain jusq’au salon</p>
 				<div class="button-hero">
-					<button class="btn-contact">conactez moi</button>
+					<a class="btn-contact" href="{{ path('app_contact') }}">conactez moi</a>
 				</div>
 			</div>
 		</div>
@@ -43,7 +43,7 @@
 							<div class="p-img-container">
 								<div class='p-img'>
 									<div>
-										<img src="../uploads/attachment/{{ image.name }}" class='p-img-front' alt="">
+										<img src="../uploads/attachment/{{ image.name }}" class='p-img-front' alt="{{ image.name }}">
 									</div>
 								</div>
 

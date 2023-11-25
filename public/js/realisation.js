@@ -1,6 +1,6 @@
-const gliderSliders = document.querySelectorAll('.glider');
-const gliderPrevs = document.querySelectorAll('.glider-prev');
-const gliderNexts = document.querySelectorAll('.glider-next');
+const gliderSliders = document.querySelectorAll(".glider");
+const gliderPrevs = document.querySelectorAll(".glider-prev");
+const gliderNexts = document.querySelectorAll(".glider-next");
 
 for (let i = 0; i < gliderSliders.length; i++) {
   initializeGlider(gliderSliders[i], gliderPrevs[i], gliderNexts[i]);
@@ -9,7 +9,6 @@ for (let i = 0; i < gliderSliders.length; i++) {
 function initializeGlider(slider, prev, next) {
   new Glider(slider, {
     slidesToShow: 1,
-    draggable: true,
     dots: "#dots",
     arrows: {
       prev: prev,
@@ -18,6 +17,35 @@ function initializeGlider(slider, prev, next) {
   });
 }
 
+const point = document.querySelectorAll(".point");
+const glider = document.querySelectorAll(".glider");
+const closeSlider = document.querySelectorAll(".closeSlider");
+const gliderInstances = [];
+
+for (let i = 0; i < point.length; i++) {
+  (function (index) {
+    const gliderInstance = new Glider(glider[index], {
+      slidesToShow: 1,
+      dots: "#dots",
+      arrows: {
+        prev: gliderPrevs[index],
+        next: gliderNexts[index],
+      },
+    });
+    gliderInstances.push(gliderInstance);
+
+    glider[index].addEventListener("click", function () {
+      point[index].classList.add("active");
+      gliderInstance.init(true);
+    });
+    
+    console.log(closeSlider[index]);
+    closeSlider[index].addEventListener("click", function () {
+        point[index].classList.remove("active");
+     });
+    
+  })(i);
+}
 
 
 

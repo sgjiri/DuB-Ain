@@ -50,27 +50,6 @@ class Site
         return $this->images;
     }
 
-    public function addImage(Image $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setSite($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getSite() === $this) {
-                $image->setSite(null);
-            }
-        }
-
-        return $this;
-    }
 
 
     public function getId(): ?int
