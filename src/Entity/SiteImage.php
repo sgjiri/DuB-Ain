@@ -30,7 +30,7 @@ class SiteImage
 
     #[ORM\ManyToOne(inversedBy: 'siteImages')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?site $site = null;
+    private ?Site $site = null;
 
     #[ORM\Column(type: Types::STRING)]
     private ?string $room = null;
