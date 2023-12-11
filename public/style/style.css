@@ -1002,6 +1002,12 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   color: #3f3838;
   border-radius: 5px;
   margin: 10px 0;
+  padding: 5px;
+}
+@media screen and (max-width: 600px) {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .info {
+    width: 90%;
+  }
 }
 @media screen and (max-width: 374px) {
   .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .info {

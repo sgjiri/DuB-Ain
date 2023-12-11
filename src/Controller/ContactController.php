@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Process\Process;
 
 class ContactController extends AbstractController
 {
@@ -26,21 +25,20 @@ class ContactController extends AbstractController
             $fisrtname = $data['Prenom'];
             $phone = $data['Telephone'];
             $object = $data['Object'];
-            $message = $data['Message'];
+            $messageContent = '<p> Nouveau message recu de ' . $fisrtname . ' ' . $lastname . ' <br> message: <br> ' . $data['Message'] . ' <br> tel:' . $phone . ' </p>';
+
             $email = (new Email())
                 ->from($adresse)
                 ->to('sg.jiri@gmail.com')
                 ->subject($object)
-                ->html('<p> Nouveau message recu de ' . $fisrtname . ' ' . $lastname . ' <br> message: <br> ' . $message . ' <br> tel:' . $phone . ' </p>');
+                ->html($messageContent);
+
             $mailer->send($email);
-            
-            // // Exécutez le consommateur de messagerie en arrière-plan
-            // $process = new Process(['php', 'bin/console', 'messenger:consume', 'async', '-vv']);
-            // $process->start();
-            // dd($mailer);
         }
+
         return $this->renderForm('page/contact.html.twig', [
-            'controller_name' => 'ContactController', 'formulaire' => $form
+            'controller_name' => 'ContactController',
+            'formulaire' => $form
         ]);
     }
 }

@@ -20,13 +20,10 @@ class DashboardController extends AbstractDashboardController
             $this->denyAccessUnlessGranted('ROLE_ADMIN');
             return $this->render('admin/dashboard.html.twig');
         } else {
-
             return $this->redirectToRoute('app_decline');
         }
-        
-
     }
-
+    
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()

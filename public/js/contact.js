@@ -1,14 +1,36 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const checkbox = document.getElementById('Check');
+    console.log('DOM entièrement chargé et analysé');
+
     const form = document.querySelector('.formContact');
 
-    console.log(form);
-  
+    if (!form) {
+        console.error('Le formulaire n\'a pas été trouvé sur la page.');
+        return; // Arrêter l'exécution si le formulaire n'est pas trouvé
+    }
+
     form.addEventListener('submit', function(event) {
-      if (!checkbox.checked) {
-        event.preventDefault(); // Prevent form submission
-        alert('Veuillez cocher la case de Politique de confidentialité.');
-      }
+        const checkbox = document.getElementById('Check');
+       
+        
+        if (!checkbox.checked) {
+            event.preventDefault(); // Empêcher la soumission du formulaire
+            alert('Veuillez cocher la case de Politique de confidentialité.');
+            return; // Arrêter l'exécution si la case n'est pas cochée
+        }
+
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const emailInput = form.querySelector('#contact_email');
+
+        if (!emailRegex.test(emailInput.value)) {
+            event.preventDefault(); // Empêcher la soumission du formulaire
+            alert("Veuillez entrer une adresse e-mail valide.");
+        }
+
+        if(emailRegex.test(emailInput.value)){
+          alert('Votre message a bien était envoyé');
+        }
     });
-  });
+});
+
   

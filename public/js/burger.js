@@ -28,25 +28,22 @@ document.addEventListener("DOMContentLoaded", function () {
               element.style.animation = `slideInRigth 1s ${index * 0.3}s forwards`;
             });
 
-            elementsLeft.forEach(function (element, index) {
+            elementsLeft.forEach(function (element) {
               element.style.animation = `slideIn 1s 0.5s forwards`;
             });
             cardElement.forEach(function (element) {
               element.classList.add('active');
             });
-
-            // Désactive l'observer après l'animation
             observer.disconnect();
           }
         });
       },
       {
-        root: null,
-        rootMargin: "0px",
-        threshold: 0.6,
-      }
+         root: null,
+         rootMargin: "0px",
+         threshold: 0.6,
+     }
     );
-
     observer.observe(section);
   });
 });
