@@ -43,8 +43,13 @@ class RegistrationController extends AbstractController
             );
         }
 
-        return $this->render('registration/register.html.twig', [
-            'registrationForm' => $form->createView(),
-        ]);
+        if ($this->isGranted('ROLE_ADMIN')) {
+            $this->denyAccessUnlessGranted('ROLE_ADMIN');
+            return $this->render('registration/register.html.twig', [
+                'registrationForm' => $form->createView(),
+            ]);
+        } else {
+            return $this->redirectToRoute('app_decline');
+        }
     }
 }
