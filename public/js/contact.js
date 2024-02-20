@@ -21,12 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const emailInput = form.querySelector('#contact_email');
-
-        if (!emailRegex.test(emailInput.value)) {
-            event.preventDefault(); // Empêcher la soumission du formulaire
-            alert("Veuillez entrer une adresse e-mail valide.");
-        }
-
         if(emailRegex.test(emailInput.value)){
           alert('Votre message a bien était envoyé');
         }

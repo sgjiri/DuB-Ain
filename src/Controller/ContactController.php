@@ -21,11 +21,11 @@ class ContactController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
             $adresse = $data['email'];
-            $lastname = $data['Nom'];
-            $fisrtname = $data['Prenom'];
+            $lastName = $data['Nom'];
+            $fisrtName = $data['Prenom'];
             $phone = $data['Telephone'];
             $object = $data['Object'];
-            $messageContent = '<p> Nouveau message recu de ' . $fisrtname . ' ' . $lastname . ' <br> message: <br> ' . $data['Message'] . ' <br> tel:' . $phone . ' </p>';
+            $messageContent = '<p> Nouveau message recu de ' . $fisrtName . ' ' . $lastName . ' <br> message: <br> ' . $data['Message'] . ' <br> tel:' . $phone . ' </p>';
 
             $email = (new Email())
                 ->from($adresse)
