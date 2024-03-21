@@ -1,0 +1,5 @@
+# translations/validators.fr.yaml
+This value should not be blank.: Cette valeur ne doit pas être vide.
+This value should have exactly 10 characters.: Cette valeur doit comporter exactement 10 caractères.
+This value is not a valid email address.: Cette valeur n'est pas une adresse email valide.
+The password is too short. It should have 8 characters or more.: Le mot de passe est trop court. Il doit contenir 8 caractères ou plus.

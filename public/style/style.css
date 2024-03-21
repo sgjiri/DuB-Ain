@@ -978,6 +978,13 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   width: 90%;
   margin-top: 15px;
 }
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ .info {
+  padding: 5px;
+  margin: 5px;
+}
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ .success {
+  background-color: rgb(84, 217, 102);
+}
 .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ .label {
   color: #ffffff;
   font-size: 1.5em;
@@ -995,6 +1002,15 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 }
 .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div {
   width: 100%;
+}
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .error-list {
+  list-style-type: none;
+  width: 100%;
+  background-color: rgb(229, 99, 99);
+  padding: 5px;
+}
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .error-list .error-message {
+  padding: 5px;
 }
 .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .info {
   width: 100%;

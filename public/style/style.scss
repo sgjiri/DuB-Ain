@@ -885,6 +885,14 @@ header {
               width: 90%;
               margin-top: 15px;
 
+              .info {
+                padding: 5px;
+                margin: 5px;
+              }
+              .success {
+                background-color: rgb(84, 217, 102);
+              }
+
               .label {
                 color: #ffffff;
                 font-size: 1.5em;
@@ -901,6 +909,18 @@ header {
 
               div {
                 width: 100%;
+
+                .error-list{
+                  list-style-type: none;
+                  width: 100%;
+                  background-color: rgb(229, 99, 99);
+                  padding: 5px;
+                  
+                  .error-message{
+                    
+                    padding: 5px;
+                  }
+                }
 
                 .info {
                   width: 100%;
@@ -923,6 +943,7 @@ header {
                 }
               }
             }
+
             .div-button {
               margin: 20px 0 50px;
             }

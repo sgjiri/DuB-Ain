@@ -17,6 +17,7 @@ class ContactController extends AbstractController
     {
         $form = $this->createForm(ContactType::class);
         $form->handleRequest($request);
+        $success = "";
 
         if ($form->isSubmitted() && $form->isValid()) {
             $data = $form->getData();
@@ -34,11 +35,12 @@ class ContactController extends AbstractController
                 ->html($messageContent);
 
             $mailer->send($email);
+            $success = "Votre email a été bien envoyé";
         }
 
         return $this->renderForm('page/contact.html.twig', [
             'controller_name' => 'ContactController',
-            'formulaire' => $form
+            'formulaire' => $form, 'success' => $success
         ]);
     }
 }
