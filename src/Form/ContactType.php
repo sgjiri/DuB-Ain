@@ -18,8 +18,16 @@ class ContactType extends AbstractType
         $builder
         ->add('Nom', TextType::class,[
             'constraints' => [
-                new Assert\NotBlank(),
-                new Assert\Length(['min' => 2, 'max' => 50]),
+                new
+                Assert\NotBlank([
+                    'message' => 'Votre nom est obligatoire.',
+                ]),
+                new Assert\Length([
+                    'min' => 2, 
+                    'max' => 50,
+                    'minMessage' => 'Votre nom doit comporter au moins {{ limit }} caractères.',
+                    'maxMessage' => 'Votre nom ne peut pas dépasser {{ limit }} caractères.'                               
+                ]),
             ],
             'required' => true, 
             'attr' => [
@@ -28,8 +36,16 @@ class ContactType extends AbstractType
         ])
         ->add('Prenom', TextType::class, [
             'constraints' => [
-                new Assert\NotBlank(),
-                new Assert\Length(['min' => 2, 'max' => 50]),
+                new
+                Assert\NotBlank([
+                    'message' => 'Votre prenom est obligatoire.',
+                ]),
+                new Assert\Length([
+                    'min' => 2, 
+                    'max' => 50,
+                    'minMessage' => 'Votre prénom doit comporter au moins {{ limit }} caractères.',
+                    'maxMessage' => 'Votre prénom ne peut pas dépasser {{ limit }} caractères.'                       
+                ]),
             ],
             'required' => true, 
             'attr' => [
@@ -38,9 +54,19 @@ class ContactType extends AbstractType
         ])
         ->add('email', EmailType::class, [
              'constraints' => [
-                new Assert\NotBlank(),
+                new
+                Assert\NotBlank([
+                    'message' => 'Votre email est obligatoire.',
+                ]),
                 new Assert\Email([
                     'message' => 'L\'email n\'est pas valide.'
+                ]),
+                new Assert\Length([
+                    'min' => 5,
+                    'max' => 200,
+                    'minMessage' => 'Le message doit comporter au moins {{ limit }} caractères.',
+                    'maxMessage' => 'Le message ne peut pas dépasser {{ limit }} caractères.',
+
                 ]),
             ],
             'required' => true,
@@ -71,8 +97,17 @@ class ContactType extends AbstractType
         ])
         ->add('Object', TextType::class, [
             'constraints' => [
-                new Assert\NotBlank(),
-                new Assert\Length(['min' => 2, 'max' => 50]),
+                new
+                Assert\NotBlank([
+                    'message' => 'Objet de message est obligatoire.',
+                ]),
+                new Assert\Length([
+                    'min' => 2, 
+                    'max' => 50,
+                    'minMessage' => 'Objet de message doit comporter au moins {{ limit }} caractères.',
+                    'maxMessage' => 'Objet de message ne peut pas dépasser {{ limit }} caractères.'  
+                
+                ]),
             ],
             'required' => true,
             'attr' => [
@@ -81,8 +116,17 @@ class ContactType extends AbstractType
         ])
         ->add('Message', TextareaType::class, [
             'constraints' => [
-                new Assert\NotBlank(),
-                new Assert\Length(['min' => 2, 'max' => 1000]),
+                new
+                Assert\NotBlank([
+                    'message' => 'Message est obligatoire.',
+                ]),
+                new Assert\Length([
+                    'min' => 15, 
+                    'max' => 1000,
+                    'minMessage' => 'Le message doit comporter au moins {{ limit }} caractères.',
+                    'maxMessage' => 'Le message ne peut pas dépasser {{ limit }} caractères.',
+                
+                ]),
             ],
             'required' => true,
             'attr' => [
