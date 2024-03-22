@@ -13,15 +13,45 @@
 					<div class="zonneForm zonneForm1">
 						<div class="name deuxinfo">
 							<div class="champ lastname">
-								{{ form_row(formulaire.Nom, {'attr': {'class': 'info'}, 'label_attr': {'class': 'label'}})}}
+								<div>
+									{{ form_label(formulaire.Nom, null, {'label_attr': {'class': 'label'}}) }}
+									{{ form_widget(formulaire.Nom, {'attr': {'class': 'info'}}) }}
+									{% if formulaire.Nom.vars.errors|length > 0 %}
+										<ul class="error-list">
+											{% for error in formulaire.Nom.vars.errors %}
+												<li class="error-message">{{ error.message }}</li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								</div>
 							</div>
 							<div class="firstname champ">
-								{{ form_row(formulaire.Prenom, {'attr': {'class': 'info'}, 'label_attr': {'class': 'label'}})}}
+								<div>
+									{{ form_label(formulaire.Prenom, null, {'label_attr': {'class': 'label'}}) }}
+									{{ form_widget(formulaire.Prenom, {'attr': {'class': 'info'}}) }}
+									{% if formulaire.Prenom.vars.errors|length > 0 %}
+										<ul class="error-list">
+											{% for error in formulaire.Prenom.vars.errors %}
+												<li class="error-message">{{ error.message }}</li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								</div>
 							</div>
 						</div>
 						<div class="contacts deuxinfo">
 							<div class="champ email">
-								{{ form_row(formulaire.email, {'attr': {'class': 'info'}, 'label_attr': {'class': 'label'}})}}
+								<div>
+									{{ form_label(formulaire.email, null, {'label_attr': {'class': 'label'}}) }}
+									{{ form_widget(formulaire.email, {'attr': {'class': 'info'}}) }}
+									{% if formulaire.email.vars.errors|length > 0 %}
+										<ul class="error-list">
+											{% for error in formulaire.email.vars.errors %}
+												<li class="error-message">{{ error.message }}</li>
+											{% endfor %}
+										</ul>
+									{% endif %}
+								</div>
 							</div>
 							<div class="champ tel">
 								<div>
@@ -35,16 +65,35 @@
 										</ul>
 									{% endif %}
 								</div>
-
 							</div>
 
 						</div>
 
 						<div class="champ object">
-							{{ form_row(formulaire.Object, {'attr': {'class': 'info'}, 'label_attr': {'class': 'label'}})}}
+							<div>
+								{{ form_label(formulaire.Object, null, {'label_attr': {'class': 'label'}}) }}
+								{{ form_widget(formulaire.Object, {'attr': {'class': 'info'}}) }}
+								{% if formulaire.Object.vars.errors|length > 0 %}
+									<ul class="error-list">
+										{% for error in formulaire.Object.vars.errors %}
+											<li class="error-message">{{ error.message }}</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</div>
 						</div>
 						<div class="champ message">
-							{{ form_row(formulaire.Message, {'attr': {'class': 'info','cols':'30', 'row':'10'}, 'label_attr': {'class': 'label'}})}}
+							<div>
+								{{ form_label(formulaire.Message, null, {'label_attr': {'class': 'label'}}) }}
+								{{ form_widget(formulaire.Message, {'attr': {'class': 'info'}}) }}
+								{% if formulaire.Message.vars.errors|length > 0 %}
+									<ul class="error-list">
+										{% for error in formulaire.Message.vars.errors %}
+											<li class="error-message">{{ error.message }}</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</div>
 						</div>
 						<div class="champ confidencionality">
 							<input type="checkbox" class="info" name="confidentiality" id="Check">
