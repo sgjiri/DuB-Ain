@@ -1,30 +1,49 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Inscription
 {% endblock %}
-
 {% block body %}
 
-	<section class="container">
-		<div class="row">
-			<div class="col">
-				<h1>Inscription</h1>
-
-				{{ form_errors(registrationForm) }}
-
-				{{ form_start(registrationForm) }}
-				{{ form_row(registrationForm.email) }}
-				{{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-				{{ form_row(registrationForm.RGPDConsent) }}
-
-				<button type="submit" class="btn">M'inscrire</button>
-				{{ form_end(registrationForm) }}
-
-
+	<section class="container my-3 hero">
+		<div class="backgroud-hero backgroud-user">
+			<div class="max-width">
+				<form method="post" class="formUser">
+					<div class="mb-3">
+						<div class="mb-3-content">
+							<h1>Inscription</h1>
+						</div>
+							{{ form_start(registrationForm) }}
+							<div class="mb-3-content">
+								{{ form_label(registrationForm.email, "Email:", {'label_attr': {'class': 'label'}}) }}
+								{{ form_widget(registrationForm.email, {'attr': {'class': 'form-control'}}) }}
+								{% if registrationForm.email.vars.errors|length > 0 %}
+									<ul class="error-list">
+										{% for error in registrationForm.email.vars.errors %}
+											<li class="error-message">{{ error.message }}</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</div>
+							<div class="mb-3-content">
+							{{ form_label(registrationForm.plainPassword, null, {'label_attr': {'class': 'label'}}) }}
+								{{ form_widget(registrationForm.plainPassword, {'attr': {'class': 'form-control'}}) }}
+								{% if registrationForm.plainPassword.vars.errors|length > 0 %}
+									<ul class="error-list">
+										{% for error in registrationForm.plainPassword.vars.errors %}
+											<li class="error-message">{{ error.message }}</li>
+										{% endfor %}
+									</ul>
+								{% endif %}
+							</div>
+							<div class="mb-3-content">
+							<button type="submit" class="btn btn-user">M'inscrire</button>
+							{{ form_end(registrationForm) }}
+							</div>
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
-	</section>
 
+
+	</section>
 {% endblock %}

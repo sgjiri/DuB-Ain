@@ -4,36 +4,50 @@
 {% endblock %}
 
 {% block body %}
-	<section class="container my-3">
-		<div class="row">
-			<div class="col">
-				<form method="post">
+	<section class="container my-3 hero">
+		<div class="backgroud-hero backgroud-user">
+			<div class="max-width">
+				<form method="post" class="formUser">
 					{% if error %}
 						<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 					{% endif %}
 
 					{% if app.user %}
 						<div class="mb-3">
-							Vous êtes connecté(e) comme
-							{{ app.user.userIdentifier }},
-							<a href="{{ path('app_logout') }}">Me déconnecter</a>
+							<div class="mb-3-content">
+								<p class="p-form">Vous êtes connecté(e) comme
+									{{ app.user.userIdentifier }}</p>
+							</div>
+							<div class="mb-3-content">
+
+								<a href="{{ path('app_logout') }}" class="btn btn-user">Me déconnecter</a>
+							</div>
+
 						</div>
+					{% else %}
+
+						<div class="mb-3">
+							<div class="mb-3-content">
+								<h1 class="h3 font-weight-normal">Me connecter</h1>
+							</div>
+							<div class="mb-3-content">
+								<label for="inputEmail" class="label">Email:</label>
+								<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
+							</div>
+							<div class="mb-3-content">
+								<label for="inputPassword" class="label">Mot de passe:</label>
+								<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+							</div>
+							<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+							<div class="mb-3-content">
+								<button class="btn btn-user" type="submit">
+									Me connecter
+								</button>
+							</div>
+						</div>
+
 					{% endif %}
-
-					<h1 class="h3 mb-3 font-weight-normal">Me connecter</h1>
-					<label for="inputEmail">Email</label>
-					<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-					<label for="inputPassword">Mot de passe</label>
-					<input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-					<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
-
-					<button class="btn btn-lg btn-primary" type="submit">
-						Me connecter
-					</button>
 				</form>
-
-
 			</div>
 		</div>
 
