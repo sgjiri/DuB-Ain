@@ -441,6 +441,91 @@ header {
       }
     }
   }
+  .backgroud-user {
+    .max-width {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .formUser {
+        background: $blackOpacity;
+        padding: 20px;
+        border-radius: 20px;
+        width: 80%;
+        @media screen and (min-width: 1000px) {
+          width: 600px;
+        }
+        
+        .mb-3-content {
+          display: flex;
+          flex-direction: column;
+          margin: 20px 0;
+          .p-form {
+            color: $white;
+            text-align: center;
+          }
+          h1 {
+            text-align: center;
+            align-self: center;
+          }
+          .label {
+            color: #ffffff;
+            font-size: 1.5em;
+            margin-right: 10px;
+            line-height: 50px;
+
+            @media screen and (max-width: 1000px) {
+              font-size: 1.2em;
+            }
+
+            @media screen and (max-width: 374px) {
+              font-size: 1em;
+            }
+          }
+
+          .form-control {
+            color: $grey;
+            border-radius: 5px;
+            font-size: 1.2em;
+            padding: 5px;
+
+            
+          }
+
+          .error-list {
+            list-style-type: none;
+            background-color: rgb(229, 99, 99);
+            padding: 5px;
+            margin-top: 10px;
+
+            .error-message {
+              padding: 5px;
+            }
+          }
+
+          .btn-user {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 20px;
+            background-color: $turquoise;
+            transition: all 0.5s ease-in;
+            width: 200px;
+            color: $white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            text-align: center;
+            align-self: center;
+
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
 }
 .presentation {
   padding: 100px 0;
@@ -807,12 +892,21 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  p {
-    padding: 50px;
+  div{
     background-color: $blackOpacity;
-    color: $white;
-    margin: 10px;
-    text-align: center;
+    .error-message {
+      padding: 20px 50px;
+      color: $white;
+      margin: 10px;
+      text-align: center;
+    }
+
+    .error-message-h1{
+      color: $brown;
+      width: auto;
+    }
+
+
   }
 }
 .hero-contact {
@@ -910,14 +1004,13 @@ header {
               div {
                 width: 100%;
 
-                .error-list{
+                .error-list {
                   list-style-type: none;
                   width: 100%;
                   background-color: rgb(229, 99, 99);
                   padding: 5px;
-                  
-                  .error-message{
-                    
+
+                  .error-message {
                     padding: 5px;
                   }
                 }

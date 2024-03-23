@@ -493,6 +493,85 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   background-color: #f2b054;
   color: #3f3838;
 }
+.hero .backgroud-user .max-width {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hero .backgroud-user .max-width .formUser {
+  background: rgba(30, 30, 30, 0.7);
+  padding: 20px;
+  border-radius: 20px;
+  width: 80%;
+}
+@media screen and (min-width: 1000px) {
+  .hero .backgroud-user .max-width .formUser {
+    width: 600px;
+  }
+}
+.hero .backgroud-user .max-width .formUser .mb-3-content {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0;
+}
+.hero .backgroud-user .max-width .formUser .mb-3-content .p-form {
+  color: #fff;
+  text-align: center;
+}
+.hero .backgroud-user .max-width .formUser .mb-3-content h1 {
+  text-align: center;
+  align-self: center;
+}
+.hero .backgroud-user .max-width .formUser .mb-3-content .label {
+  color: #ffffff;
+  font-size: 1.5em;
+  margin-right: 10px;
+  line-height: 50px;
+}
+@media screen and (max-width: 1000px) {
+  .hero .backgroud-user .max-width .formUser .mb-3-content .label {
+    font-size: 1.2em;
+  }
+}
+@media screen and (max-width: 374px) {
+  .hero .backgroud-user .max-width .formUser .mb-3-content .label {
+    font-size: 1em;
+  }
+}
+.hero .backgroud-user .max-width .formUser .mb-3-content .form-control {
+  color: #3f3838;
+  border-radius: 5px;
+  font-size: 1.2em;
+  padding: 5px;
+}
+.hero .backgroud-user .max-width .formUser .mb-3-content .error-list {
+  list-style-type: none;
+  background-color: rgb(229, 99, 99);
+  padding: 5px;
+  margin-top: 10px;
+}
+.hero .backgroud-user .max-width .formUser .mb-3-content .error-list .error-message {
+  padding: 5px;
+}
+.hero .backgroud-user .max-width .formUser .mb-3-content .btn-user {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 20px;
+  background-color: #42a9eb;
+  transition: all 0.5s ease-in;
+  width: 200px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  align-self: center;
+}
+.hero .backgroud-user .max-width .formUser .mb-3-content .btn-user:hover {
+  transform: scale(1.1);
+}
 
 .presentation {
   padding: 100px 0;
@@ -894,12 +973,18 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   justify-content: center;
   align-items: center;
 }
-.decline p {
-  padding: 50px;
+.decline div {
   background-color: rgba(30, 30, 30, 0.7);
+}
+.decline div .error-message {
+  padding: 20px 50px;
   color: #fff;
   margin: 10px;
   text-align: center;
+}
+.decline div .error-message-h1 {
+  color: #f2b054;
+  width: auto;
 }
 
 .hero-contact {

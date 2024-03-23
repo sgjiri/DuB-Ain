@@ -24,9 +24,9 @@ class SecurityController extends AbstractController
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
-    #[Route(path: '/logout', name: 'app_logout')]
+    #[Route(path: '/logout', name: 'app_logout', methods: ["GET"])]
     public function logout(): void
     {
-        throw new \LogicException('Cette méthode peut être vide - elle sera interceptée par la clé de déconnexion sur pare-feu.');
+       
     }
 }

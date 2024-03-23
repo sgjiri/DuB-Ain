@@ -12,6 +12,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Type de formulaire pour l'inscription d'un utilisateur.
@@ -27,31 +28,42 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email', EmailType::class)
-            ->add('RGPDConsent', CheckboxType::class, [
-                'mapped' => false,
-                // 'mapped' => false signifie que ce champ n'est pas directement lié à une propriété de l'entité User
+            ->add('email', EmailType::class, [
                 'constraints' => [
-                    new IsTrue([
-                        'message' => 'Vous devez accepter nos conditions.',
+                    new
+                        Assert\NotBlank([
+                            'message' => 'Votre email est obligatoire.',
+                        ]),
+                    new Assert\Email([
+                        'message' => 'L\'email n\'est pas valide.'
+                    ]),
+                    new Assert\Length([
+                        'min' => 5,
+                        'max' => 200,
+                        'minMessage' => 'Le message doit comporter au moins {{ limit }} caractères.',
+                        'maxMessage' => 'Le message ne peut pas dépasser {{ limit }} caractères.',
+
                     ]),
                 ],
+                'required' => true,
+                'attr' => [
+                    'placeholder' => 'Votre email',
+                ],
+                'label' => "Email:"
             ])
             ->add('plainPassword', PasswordType::class, [
                 // au lieu d'être défini directement sur l'objet,
                 // ce champ est lu et encodé dans le contrôleur
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'label' => 'Mot de passe:',
+                'attr' => ['placeholder' => 'Mot de passe',],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Veuillez entrer un mot de passe',
                     ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit comporter au moins {{ limit }} caractères',
-                        // longueur maximale autorisée par Symfony pour des raisons de sécurité
-                        'max' => 100,
-                        'maxMessage' => 'Votre mot de passe doit comporter au maximum {{ limit }} caractères',
+                    new Assert\Regex([
+                        'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/',
+                        'message' => "Le mot de passe doit contenir au moins une lettre majuscule, une minuscule, un chiffre, un caractère spécial et être d'au moins 8 caractères de longueur.",
                     ]),
                 ],
             ]);

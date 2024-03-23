@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+	<section class="hero">
+		<div class='backgroud-hero decline'>
+			<div>
+				<h1 class="error-message error-message-h1">HTTP Error
+					{{ exception.statusCode }}
+				</h1>
+				<p class="error-message">{{ exception.statusText }}</p>
+			</div>
+		</div>
+	</section>
+	{% block js %}
+		<script src="../js/burger.js"></script>
+	{% endblock %}
+
+{% endblock %}
