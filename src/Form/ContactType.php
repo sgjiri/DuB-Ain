@@ -16,25 +16,35 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Classe définissant le formulaire de contact.
+ *
+ * Cette classe est responsable de la construction du formulaire de contact
+ * utilisé dans l'application. Elle hérite d'AbstractType qui fournit des
+ * fonctionnalités de base pour créer un formulaire dans Symfony.
  */
 class ContactType extends AbstractType
 {
     /**
      * Construit les éléments du formulaire de contact.
      *
+     * Cette méthode est appelée pour ajouter des champs au formulaire,
+     * définir les contraintes de validation et personnaliser les attributs HTML.
+     *
      * @param FormBuilderInterface $builder Le constructeur de formulaire.
      * @param array $options Les options pour ce formulaire.
      */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        // Ajout d'un champ de texte pour entrer le nom de l'utilisateur
+        // Ajout d'un champ de texte pour saisir le nom avec validation
+        // Les champs ajoutés incluent prénom, email, téléphone, objet du message, et message
+        // Chaque champ a des contraintes de validation spécifiques pour assurer que les données entrées sont valides
+        // Par exemple, le champ email utilise Assert\Email pour valider que l'entrée est un email valide
         $builder->add('nom', TextType::class, [
             'constraints' => [
-                // Contrainte pour s'assurer que le champ n'est pas vide
+                // Vérifie que le champ n'est pas vide
                 new Assert\NotBlank([
                     'message' => 'Votre nom est obligatoire.',
                 ]),
-                // Contrainte pour limiter la longueur du nom
+                // Limite la longueur du nom entre 2 et 50 caractères
                 new Assert\Length([
                     'min' => 2,
                     'max' => 50,
@@ -42,9 +52,9 @@ class ContactType extends AbstractType
                     'maxMessage' => 'Votre nom ne peut pas dépasser {{ limit }} caractères.'
                 ]),
             ],
-            'required' => true,
+            'required' => true, // Le champ est obligatoire
             'attr' => [
-                'placeholder' => 'Votre nom', // Texte indicatif dans le champ
+                'placeholder' => 'Votre nom', // Placeholder dans le champ de texte
             ],
         ])
             ->add('prenom', TextType::class, [
@@ -147,25 +157,27 @@ class ContactType extends AbstractType
                     'placeholder' => 'Votre message',
                 ],
             ])
+            // Ajout d'un champ type checkbox pour la confidencialité avec un label contenant un lien HTML
             ->add('confidencionality', CheckboxType::class, [
 
-                'required' => false,
+                'required' => true,
                 'label' => 'En soumettant ce formulaire, j\'accepte que mes données personnelles soient utilisées pour me recontacter. Aucun autre traitement ne sera effectué avec mes informations. Pour connaître et exercer vos droits, veuillez consultez la
                 <a target="_blank" href="doc/Confidencialité.pdf">Politique de confidentialité</a>.',
-                'label_html' => true,
+                'label_html' => true, // Permet d'utiliser du HTML dans le label
                 'constraints' => [
                     new Assert\IsTrue([
                         'message' => 'Vous devez accepter la politique de confidentialité pour continuer.',
                     ]),
                 ],
             ])
+            // Ajout d'un bouton de soumission pour envoyer le formulaire
             ->add('envoyer', SubmitType::class)
+            // Ajout d'un champ honeypot pour piéger les spambots (doit rester vide)
             ->add('honeypot', TextType::class, [
-                'mapped' => false,
-                'required' => false,
-                'attr' => ['style' => 'display:none;'], // Cela cache le champ.
-                'label' => false, // Cela indique qu'il n'y aura pas de label.
-                'label_attr' => ['style' => 'display:none;'], // Cela n'est pas nécessaire si le label est déjà désactivé avec 'label' => false.
+                'mapped' => false, // Ce champ ne sera pas mappé à l'objet du formulaire
+                'required' => false, // Ce champ n'est pas requis
+                'attr' => ['style' => 'display:none;'], // On le cache en CSS
+                'label' => false, // Pas de label pour ce champ
             ]);
     }
     public function configureOptions(OptionsResolver $resolver): void
