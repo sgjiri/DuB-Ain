@@ -31,7 +31,10 @@
 					<li><a href="{{ path('app_salle_de_bain') }}" class="lien-header">salle de bain</a></li>
 					<li><a href="{{ path('app_renovation') }}" class="lien-header">rénovation intérieur</a></li>
 					<li><a href="{{ path('app_realisation') }}" class="lien-header">réalisations</a></li>
+					{% if app.user %}
+					
 					<li><a href="{{ path('app_admin') }}" class="lien-header">admin</a></li>
+					{% endif %}
 				</ul>
 			</nav>
 			<nav class=" navigation" id='navigation-mobil'>
@@ -40,7 +43,9 @@
 					<li><a href="{{ path('app_salle_de_bain') }}" class="lien-header">salle de bain</a></li>
 					<li><a href="{{ path('app_renovation') }}" class="lien-header">rénovation intérieur</a></li>
 					<li><a href="{{ path('app_realisation') }}" class="lien-header">réalisations</a></li>
+					{% if app.user %}
 					<li><a href="{{ path('app_admin') }}" class="lien-header">admin</a></li>
+					{% endif %}
 				</ul>
 			</nav>
 			<span class='burger item-menu-mobil'>
