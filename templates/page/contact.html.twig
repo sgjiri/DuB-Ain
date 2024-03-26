@@ -14,11 +14,11 @@
 						<div class="name deuxinfo">
 							<div class="champ lastname">
 								<div>
-									{{ form_label(formulaire.Nom, null, {'label_attr': {'class': 'label'}}) }}
-									{{ form_widget(formulaire.Nom, {'attr': {'class': 'info'}}) }}
-									{% if formulaire.Nom.vars.errors|length > 0 %}
+									{{ form_label(formulaire.nom, null, {'label_attr': {'class': 'label'}}) }}
+									{{ form_widget(formulaire.nom, {'attr': {'class': 'info'}}) }}
+									{% if formulaire.nom.vars.errors|length > 0 %}
 										<ul class="error-list">
-											{% for error in formulaire.Nom.vars.errors %}
+											{% for error in formulaire.nom.vars.errors %}
 												<li class="error-message">{{ error.message }}</li>
 											{% endfor %}
 										</ul>
@@ -27,11 +27,11 @@
 							</div>
 							<div class="firstname champ">
 								<div>
-									{{ form_label(formulaire.Prenom, null, {'label_attr': {'class': 'label'}}) }}
-									{{ form_widget(formulaire.Prenom, {'attr': {'class': 'info'}}) }}
-									{% if formulaire.Prenom.vars.errors|length > 0 %}
+									{{ form_label(formulaire.prenom, null, {'label_attr': {'class': 'label'}}) }}
+									{{ form_widget(formulaire.prenom, {'attr': {'class': 'info'}}) }}
+									{% if formulaire.prenom.vars.errors|length > 0 %}
 										<ul class="error-list">
-											{% for error in formulaire.Prenom.vars.errors %}
+											{% for error in formulaire.prenom.vars.errors %}
 												<li class="error-message">{{ error.message }}</li>
 											{% endfor %}
 										</ul>
@@ -55,11 +55,11 @@
 							</div>
 							<div class="champ tel">
 								<div>
-									{{ form_label(formulaire.Telephone, null, {'label_attr': {'class': 'label'}}) }}
-									{{ form_widget(formulaire.Telephone, {'attr': {'class': 'info'}}) }}
-									{% if formulaire.Telephone.vars.errors|length > 0 %}
+									{{ form_label(formulaire.telephone, null, {'label_attr': {'class': 'label'}}) }}
+									{{ form_widget(formulaire.telephone, {'attr': {'class': 'info'}}) }}
+									{% if formulaire.telephone.vars.errors|length > 0 %}
 										<ul class="error-list">
-											{% for error in formulaire.Telephone.vars.errors %}
+											{% for error in formulaire.telephone.vars.errors %}
 												<li class="error-message">{{ error.message }}</li>
 											{% endfor %}
 										</ul>
@@ -71,11 +71,11 @@
 
 						<div class="champ object">
 							<div>
-								{{ form_label(formulaire.Object, null, {'label_attr': {'class': 'label'}}) }}
-								{{ form_widget(formulaire.Object, {'attr': {'class': 'info'}}) }}
-								{% if formulaire.Object.vars.errors|length > 0 %}
+								{{ form_label(formulaire.object, null, {'label_attr': {'class': 'label'}}) }}
+								{{ form_widget(formulaire.object, {'attr': {'class': 'info'}}) }}
+								{% if formulaire.object.vars.errors|length > 0 %}
 									<ul class="error-list">
-										{% for error in formulaire.Object.vars.errors %}
+										{% for error in formulaire.object.vars.errors %}
 											<li class="error-message">{{ error.message }}</li>
 										{% endfor %}
 									</ul>
@@ -84,11 +84,11 @@
 						</div>
 						<div class="champ message">
 							<div>
-								{{ form_label(formulaire.Message, null, {'label_attr': {'class': 'label'}}) }}
-								{{ form_widget(formulaire.Message, {'attr': {'class': 'info'}}) }}
-								{% if formulaire.Message.vars.errors|length > 0 %}
+								{{ form_label(formulaire.message, null, {'label_attr': {'class': 'label'}}) }}
+								{{ form_widget(formulaire.message, {'attr': {'class': 'info'}}) }}
+								{% if formulaire.message.vars.errors|length > 0 %}
 									<ul class="error-list">
-										{% for error in formulaire.Message.vars.errors %}
+										{% for error in formulaire.message.vars.errors %}
 											<li class="error-message">{{ error.message }}</li>
 										{% endfor %}
 									</ul>
@@ -96,10 +96,18 @@
 							</div>
 						</div>
 						<div class="champ confidencionality">
-							<input type="checkbox" class="info" name="confidentiality" id="Check">
-							<label for="confidencionality" class="label">
-								En soumettant ce formulaire, j'accepte que mes données personnelles soient utilisées pour me recontacter. Aucun autre traitement ne sera effectué avec mes informations. Pour connaître et exercer vos droits, veuillez consultez la
-								<a target="_blank" href="{{ asset('doc/Confidencialité.pdf') }}">Politique de confidentialité</a>.</label>
+							<div>
+								{{ form_label(formulaire.confidencionality, null, {'label_attr': {'class': 'label'}}) }}
+								{{ form_widget(formulaire.confidencionality, {'attr': {'class': 'info', 'id': 'Check' }}) }}
+
+							</div>
+							{% if formulaire.confidencionality.vars.errors|length > 0 %}
+								<ul class="error-list">
+									{% for error in formulaire.confidencionality.vars.errors %}
+										<li class="error-message">{{ error.message }}</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
 						</div>
 						{% if success %}
 							<div class="champ">
@@ -107,7 +115,7 @@
 							</div>
 						{% endif %}
 						<div class="champ div-button">
-							{{ form_row(formulaire.Envoyer, {'attr': {'class': 'champ submit'}})}}
+							{{ form_row(formulaire.envoyer, {'attr': {'class': 'champ submit'}})}}
 						</div>
 
 					</div>
