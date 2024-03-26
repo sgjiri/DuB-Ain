@@ -5,6 +5,7 @@ namespace App\Form;
 
 // Importation des classes nécessaires à la création du formulaire
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -27,7 +28,7 @@ class ContactType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         // Ajout d'un champ de texte pour entrer le nom de l'utilisateur
-        $builder->add('Nom', TextType::class, [
+        $builder->add('nom', TextType::class, [
             'constraints' => [
                 // Contrainte pour s'assurer que le champ n'est pas vide
                 new Assert\NotBlank([
@@ -46,7 +47,7 @@ class ContactType extends AbstractType
                 'placeholder' => 'Votre nom', // Texte indicatif dans le champ
             ],
         ])
-            ->add('Prenom', TextType::class, [
+            ->add('prenom', TextType::class, [
                 'constraints' => [
                     new
                         Assert\NotBlank([
@@ -86,7 +87,7 @@ class ContactType extends AbstractType
                     'placeholder' => 'Votre email',
                 ],
             ])
-            ->add('Telephone', TextType::class, [
+            ->add('telephone', TextType::class, [
                 'constraints' => [
                     new Assert\NotBlank([
                         'message' => 'Le numéro de téléphone est obligatoire.',
@@ -108,7 +109,7 @@ class ContactType extends AbstractType
                 ],
                 'error_bubbling' => false,
             ])
-            ->add('Object', TextType::class, [
+            ->add('object', TextType::class, [
                 'constraints' => [
                     new
                         Assert\NotBlank([
@@ -127,7 +128,7 @@ class ContactType extends AbstractType
                     'placeholder' => 'Objet de message',
                 ],
             ])
-            ->add('Message', TextareaType::class, [
+            ->add('message', TextareaType::class, [
                 'constraints' => [
                     new
                         Assert\NotBlank([
@@ -146,7 +147,19 @@ class ContactType extends AbstractType
                     'placeholder' => 'Votre message',
                 ],
             ])
-            ->add('Envoyer', SubmitType::class)
+            ->add('confidencionality', CheckboxType::class, [
+
+                'required' => false,
+                'label' => 'En soumettant ce formulaire, j\'accepte que mes données personnelles soient utilisées pour me recontacter. Aucun autre traitement ne sera effectué avec mes informations. Pour connaître et exercer vos droits, veuillez consultez la
+                <a target="_blank" href="doc/Confidencialité.pdf">Politique de confidentialité</a>.',
+                'label_html' => true,
+                'constraints' => [
+                    new Assert\IsTrue([
+                        'message' => 'Vous devez accepter la politique de confidentialité pour continuer.',
+                    ]),
+                ],
+            ])
+            ->add('envoyer', SubmitType::class)
             ->add('honeypot', TextType::class, [
                 'mapped' => false,
                 'required' => false,
@@ -158,9 +171,8 @@ class ContactType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'csrf_protection' => true,
-            'csrf_field_name' => '_token',
-            // Vous pouvez également définir un 'csrf_token_id' unique pour ce formulaire si nécessaire
+            'csrf_protection' => true, // Active la protection CSRF
+            'csrf_field_name' => '_token', // Nom du champ caché pour le jeton CSRF
         ]);
     }
 }

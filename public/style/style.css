@@ -105,7 +105,6 @@ a {
   font-size: 0.8em;
 }
 .logo .text-logo .title-logo {
-  font-family: "Abril-Fatface", sans-serif;
   color: #fff;
   font-size: 1em;
   letter-spacing: 0;
@@ -298,16 +297,15 @@ header .content-header-bottom .max-width #navigation-mobil {
   height: calc(100vh - 120px);
   width: 100%;
   background: rgba(30, 30, 30, 0.7);
-  display: block;
   transition: 0.5s all;
+  display: block;
 }
 header .content-header-bottom .max-width #navigation-mobil.active {
   right: 0px;
 }
 @media screen and (min-width: 700px) {
   header .content-header-bottom .max-width #navigation-mobil.active {
-    display: none;
-    right: -5000px;
+    right: 0;
   }
 }
 header .content-header-bottom .max-width #navigation-mobil ul {
@@ -340,7 +338,7 @@ header .content-header-bottom .max-width #navigation-mobil ul li a {
 header .content-header-bottom .max-width .navigation-desktop {
   height: 100%;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   header .content-header-bottom .max-width .navigation-desktop {
     display: block;
   }
@@ -352,26 +350,22 @@ header .content-header-bottom .max-width .navigation-desktop {
     list-style-type: none;
   }
   header .content-header-bottom .max-width .navigation-desktop ul li a {
-    font-size: 0.7em;
+    font-size: 0.8em;
     line-height: 70px;
   }
 }
-@media screen and (min-width: 800px) and (min-width: 920px) {
+@media screen and (min-width: 1000px) and (min-width: 1300px) {
   header .content-header-bottom .max-width .navigation-desktop ul li a {
-    font-size: 0.9em;
-  }
-}
-@media screen and (min-width: 800px) and (min-width: 1300px) {
-  header .content-header-bottom .max-width .navigation-desktop ul li a {
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 }
 header .content-header-bottom .max-width .burger {
   width: 30px;
   height: 35%;
   display: block;
+  cursor: pointer;
 }
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 1000px) {
   header .content-header-bottom .max-width .burger {
     display: none;
   }
@@ -967,6 +961,14 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 .content-sdb .point div h2 {
   padding: 50px 0;
 }
+.content-sdb .point-fix:nth-child(even) {
+  flex-direction: column-reverse;
+}
+@media screen and (min-width: 1000px) {
+  .content-sdb .point-fix:nth-child(even) {
+    flex-direction: row;
+  }
+}
 
 .decline {
   display: flex;
@@ -1085,17 +1087,17 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
     font-size: 1em;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div {
-  width: 100%;
-}
-.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .error-list {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ .error-list {
   list-style-type: none;
   width: 100%;
   background-color: rgb(229, 99, 99);
   padding: 5px;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .error-list .error-message {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ .error-list .error-message {
   padding: 5px;
+}
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div {
+  width: 100%;
 }
 .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div .info {
   width: 100%;
@@ -1115,49 +1117,51 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
     font-size: 1em;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div #contact_Message {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .champ div #contact_message {
   height: 300px;
 }
 .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .div-button {
   margin: 20px 0 50px;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality div {
+  display: flex;
   flex-direction: row;
   position: relative;
 }
-.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .info {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality div .info {
   position: absolute;
   width: 7%;
   height: 20px;
   margin-right: 5px;
-  top: 1%;
+  top: -5%;
 }
 @media screen and (max-width: 1368px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .info {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality div .info {
     top: 0;
   }
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .info {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality div .info {
     height: 15px;
     top: 2px;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .label {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality div .label {
   font-size: 1.2em;
   text-indent: 7%;
+  margin-bottom: 5px;
 }
 @media screen and (max-width: 1000px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .label {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality div .label {
     text-indent: 10%;
   }
 }
 @media screen and (max-width: 900px) {
-  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .label {
+  .hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality div .label {
     font-size: 1rem;
   }
 }
-.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality .label a {
+.hero-contact .backgroud-hero .max-width .formContact .zones .zonneForm1 .confidencionality div .label a {
   text-decoration: underline;
   text-transform: lowercase;
   display: inline;
