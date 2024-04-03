@@ -9,7 +9,7 @@ use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+#[UniqueEntity(fields: ['email'], message: 'Il existe déjà un compte avec cet email')]
 
 class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
@@ -29,6 +29,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
+
+    public function __construct()
+    {
+        // Initialise les rôles de l'utilisateur avec ROLE_ADMIN
+        $this->roles = ['ROLE_ADMIN'];
+    }
 
     public function getId(): ?int
     {
@@ -71,9 +77,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function setRoles(array $roles): self
     {
-        $this->roles = $roles;
-        $this->roles[] = 'ROLE_USER';
-        $this->roles[] = 'ROLE_ADMIN';
+        if (empty($roles)) {
+            // S'il n'y a pas de rôles définis, on attribue uniquement ROLE_ADMIN
+            $this->roles = ['ROLE_ADMIN'];
+        } else {
+            // Sinon, on attribue les rôles fournis et on s'assure que ROLE_ADMIN est toujours présent
+            $this->roles = $roles;
+            if (!in_array('ROLE_ADMIN', $this->roles)) {
+                $this->roles[] = 'ROLE_ADMIN';
+            }
+        }
 
         return $this;
     }
