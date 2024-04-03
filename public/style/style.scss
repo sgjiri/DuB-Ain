@@ -370,7 +370,8 @@ header {
   height: calc(100vh - 120px);
 
   .backgroud-hero {
-    background: url(../img/hero.avif) center center / cover no-repeat;
+    background: url(../img/WEBP/sale_de_bain.webp) center center / cover
+      no-repeat;
     height: 100vh;
     position: absolute;
     top: 0;
@@ -562,7 +563,8 @@ header {
   }
 }
 .section-slider {
-  background: url(../img/renovation.png) center center / cover no-repeat;
+  background: url(../img/WEBP/sale_de_bain1.webp) center center / cover
+    no-repeat;
   .efect-lenear {
     background: linear-gradient(
       106deg,
@@ -809,10 +811,11 @@ header {
     }
   }
   .backgroud-hero-sdb {
-    background: url(../img/herosdb.png) center center / cover no-repeat;
+    background: url(../img/WEBP/sale_de_bain2.webp) center center / cover
+      no-repeat;
   }
   .backgroud-hero-renovation {
-    background: url(../img/salon.jpg) center center / cover no-repeat;
+    background: url(../img/WEBP/salon2.webp) center center / cover no-repeat;
   }
 }
 
@@ -1013,10 +1016,6 @@ header {
 
               div {
                 width: 100%;
-
-                
-
-                
 
                 .info {
                   width: 100%;
@@ -1295,7 +1294,7 @@ header {
     filter: none;
 
     @media screen and (min-width: 1000px) {
-      height: 400px;
+      height: 700px;
     }
     .glider-contain {
       width: 100%;
@@ -1373,7 +1372,16 @@ header {
       }
       h4,
       p {
-        margin: 10px 20px;
+        margin: 10px 20%;
+        font-size: 1.2em;
+
+       .nowrap {
+          white-space: nowrap;
+        }
+
+        @media screen and (min-width: 1000px) {
+          font-size: 1.4em;
+        }
       }
     }
     .slider-btns {
