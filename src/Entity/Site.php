@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use App\Repository\SiteRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
@@ -37,6 +38,7 @@ class Site
     private Collection $images;
 
     #[ORM\OneToMany(mappedBy: 'site', targetEntity: SiteImage::class, orphanRemoval: true, cascade: ['persist'])]
+    #[Assert\Count(min: 1, minMessage: "Vous devez ajouter au moins une image.")]
     private Collection $siteImages;
 
     public function __construct()

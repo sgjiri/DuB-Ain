@@ -50,9 +50,9 @@ class ContactController extends AbstractController
 
             // Crée et configure l'objet Email pour l'envoi du message.
             $email = (new Email())
-                ->from(sprintf('%s %s <%s>', $fisrtName, $lastName, 'contact@dubainausalon.fischer-j.eu')) // L'adresse email de l'expéditeur (peut être paramétrée).
+                ->from(sprintf('%s %s <%s>', $fisrtName, $lastName, 'contact@dubainausalon.fischer-j.eu')) // L'adresse email de l'expéditeur.
                 ->replyTo($data['email']) // Utilise l'adresse email de l'utilisateur comme adresse de réponse.
-                ->to('contact@dubainausalon.fischer-j.eu') // L'adresse email du destinataire (peut être paramétrée).
+                ->to('contact@dubainausalon.fischer-j.eu') // L'adresse email du destinataire.
                 ->subject($data['object']) // Le sujet de l'email.
                 ->html($messageContent); // Le contenu du message en HTML.
 

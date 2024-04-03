@@ -40,9 +40,10 @@ class ImageType extends AbstractType
                         'image/jpeg',
                         'image/png',
                         'image/gif',
+                        'image/webp',
                     ],
                     // Le message d'erreur si le type MIME du fichier n'est pas autorisé.
-                    'mimeTypesMessage' => 'Veuillez sélectionner une image au format JPEG, PNG ou GIF.', 
+                    'mimeTypesMessage' => 'Veuillez sélectionner une image au format JPEG, PNG, WEBP ou GIF.', 
                 ]),
             ],
         ])
