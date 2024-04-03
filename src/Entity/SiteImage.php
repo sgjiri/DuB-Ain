@@ -20,7 +20,7 @@ class SiteImage
     private ?File $file = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    public ?string $name;
+    public ?string $name = null;
 
     #[ORM\Column]
     private ?int $size = null;

@@ -15,6 +15,10 @@ burger.addEventListener('click', function () {
   navMobil.classList.toggle('active');
 });
 
+
+
+
+
 // Écouteur d'événements pour exécuter le code une fois que le contenu du DOM est chargé.
 document.addEventListener("DOMContentLoaded", function () {
   // Sélection de toutes les sections qui doivent être animées.

@@ -6,6 +6,7 @@ use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\NotBlank;
@@ -56,11 +57,19 @@ class RegistrationFormType extends AbstractType
                 'label' => "Email:"
             ])
             // Ajoute un champ 'plainPassword' de type PasswordType au formulaire.
-            ->add('plainPassword', PasswordType::class, [
+            ->add('plainPassword', RepeatedType::class, [
+                'type' => PasswordType::class,
+                'first_options' => [
+                    // Le label qui sera affiché à côté du champ 'plainPassword'.
+                    'label' => 'Mot de passe:',
+                ],
+                'second_options' =>[
+                    'label' => 'Confirmation du mot de passe:',
+                ],
+                'invalid_message' => 'Les monts de passe ne corespendent pas',
                 // 'mapped' => false indique que ce champ n'est pas directement lié à une propriété de l'entité User.
                 'mapped' => false,
-                // Le label qui sera affiché à côté du champ 'plainPassword'.
-                'label' => 'Mot de passe:',
+                
                 // Des attributs HTML supplémentaires pour le champ 'plainPassword', comme le placeholder.
                 'attr' => ['placeholder' => 'Mot de passe'],
                 // Définit les contraintes de validation pour le champ 'plainPassword'.

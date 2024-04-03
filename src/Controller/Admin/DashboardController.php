@@ -1,13 +1,11 @@
 <?php
 
 namespace App\Controller\Admin;
-
-use App\Entity\SiteImage;
 use App\Entity\Site;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -18,7 +16,8 @@ class DashboardController extends AbstractDashboardController
     {
         if ($this->isGranted('ROLE_ADMIN')) {
             $this->denyAccessUnlessGranted('ROLE_ADMIN');
-            return $this->render('admin/dashboard.html.twig');
+            $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
+            return $this->redirect($adminUrlGenerator->setController(SiteCrudController::class));
         } else {
             return $this->redirectToRoute('app_decline');
         }
@@ -27,12 +26,11 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('DuBAin');
+            ->setTitle('Dashboard');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToCrud('SiteImage', 'fas fa-image', SiteImage::class);
         yield MenuItem::linkToCrud('Site', 'fas  fa-location-dot', Site::class);
         yield MenuItem::linkToUrl('Homepage', 'fa fa-home', '/');
     }

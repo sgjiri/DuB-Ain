@@ -35,6 +35,16 @@ class SiteCrudController extends AbstractCrudController
      */
     public function configureFields(string $pageName): iterable
     {
+        $images = CollectionField::new('siteImages')
+        ->setEntryType(ImageType::class)
+        //Si je défini cette option à false, Symfony s'assurera que les méthodes add et remove de mon collection sont bien appelées, ce qui est nécessaire pour la persistance correcte des relations OneToMany et ManyToMany.
+        ->setFormTypeOption('by_reference', false)
+        //Lorsque cette option est définie sur true, elle permet à l'utilisateur d'ajouter de nouveaux éléments à la collection directement dans le formulaire. 
+        ->setFormTypeOption('allow_add', true)
+        //Lorsque cette option est définie sur true, elle donne à l'utilisateur la possibilité de supprimer des éléments de la collection directement dans le formulaire. 
+        ->setFormTypeOption('allow_delete', true)
+        // Si cette option est réglée sur true, elle active la validation de Symfony pour ce champ particulier. Ainsi, les contraintes de validation définies dans les entités seront prises en compte lors de la soumission du formulaire.
+        ->setFormTypeOption('validate', true);
         // Utilisation de "yield" pour générer les champs un par un, ce qui peut être plus efficace que de retourner un tableau complet.
         return [
             // Crée un champ 'id' de type IdField, caché dans le formulaire.
