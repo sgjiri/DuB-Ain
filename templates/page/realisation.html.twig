@@ -52,14 +52,12 @@
 					<div class="description-site">
 						<h4>{{ site.name }}</h4>
 						{% if site.surface %}
-						<p>Surface:
-							{{ site.surface }}
-							m2</p>
+						<p>Surface: <span class="nowrap">{{ site.surface }} m²</span></p>
 						{% endif %}
 						{% if site.price %}
 							<p>Coût :
-								{{ site.price }}
-								€</p>
+								<span class="nowrap">{{ site.price }}
+								€</span></p>
 						{% endif %}
 						{% if site.localisation %}
 						<p>Lieu :
@@ -67,9 +65,9 @@
 						{% endif %}
 						{% if site.duration %}
 						<p>Durée du chantier:
-							{{ site.duration }}
+							<span class="nowrap">{{ site.duration }}
 							semaines
-						</p>
+						</span></p>
 						{% endif %}
 					</div>
 					

@@ -408,7 +408,7 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   height: calc(100vh - 120px);
 }
 .hero .backgroud-hero {
-  background: url(../img/hero.avif) center center/cover no-repeat;
+  background: url(../img/WEBP/sale_de_bain.webp) center center/cover no-repeat;
   height: 100vh;
   position: absolute;
   top: 0;
@@ -615,7 +615,7 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 }
 
 .section-slider {
-  background: url(../img/renovation.png) center center/cover no-repeat;
+  background: url(../img/WEBP/sale_de_bain1.webp) center center/cover no-repeat;
 }
 .section-slider .efect-lenear {
   background: linear-gradient(106deg, rgba(0, 0, 0, 0.9) 9.53%, rgba(30, 30, 30, 0) 98.31%);
@@ -883,10 +883,10 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
   }
 }
 .hero-prestation .backgroud-hero-sdb {
-  background: url(../img/herosdb.png) center center/cover no-repeat;
+  background: url(../img/WEBP/sale_de_bain2.webp) center center/cover no-repeat;
 }
 .hero-prestation .backgroud-hero-renovation {
-  background: url(../img/salon.jpg) center center/cover no-repeat;
+  background: url(../img/WEBP/salon2.webp) center center/cover no-repeat;
 }
 
 .content-sdb {
@@ -1378,7 +1378,7 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 }
 @media screen and (min-width: 1000px) {
   .content-realisation .point {
-    height: 400px;
+    height: 700px;
   }
 }
 .content-realisation .point .glider-contain {
@@ -1460,7 +1460,18 @@ header .content-header-bottom .max-width .burger .container-burger .thirt-burger
 }
 .content-realisation .point .description-site h4,
 .content-realisation .point .description-site p {
-  margin: 10px 20px;
+  margin: 10px 20%;
+  font-size: 1.2em;
+}
+.content-realisation .point .description-site h4 .nowrap,
+.content-realisation .point .description-site p .nowrap {
+  white-space: nowrap;
+}
+@media screen and (min-width: 1000px) {
+  .content-realisation .point .description-site h4,
+  .content-realisation .point .description-site p {
+    font-size: 1.4em;
+  }
 }
 .content-realisation .point .slider-btns {
   position: absolute;
